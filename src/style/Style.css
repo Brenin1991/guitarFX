@@ -1,0 +1,302 @@
+.background{
+    -fx-background-color: black;
+    -fx-opacity: 1;
+}
+
+.background-amplificador {
+    -fx-background-color:
+        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+        linear-gradient(#020b02, #3a3a3a),
+        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
+        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),
+        linear-gradient(#2E2E2E 0%, #2E2E2E 50%, #2E2E2E 51%, #2E2E2E 100%);
+    -fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3;
+}
+
+.background-voltar {
+    -fx-background-color:
+        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+        linear-gradient(#020b02, #3a3a3a),
+        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
+        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),
+        linear-gradient(#DF0101 0%, #DF0101 50%, #DF0101 51%, #DF0101 100%);
+    -fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3;
+}
+
+.background-braco {
+    -fx-background-color:
+        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+        linear-gradient(#020b02, #3a3a3a),
+        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
+        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),
+        linear-gradient(#2E2E2E 0%, #2E2E2E 50%, #2E2E2E 51%, #2E2E2E 100%);
+    -fx-background-insets: 0,1,4,5,6;
+    -fx-background-radius: 9,8,5,4,3;
+}
+
+.background-imagem{
+    -fx-padding: 5;
+    -fx-background-color: null !important;
+    -fx-background-radius: 0;
+    -fx-background-image: url("https://d26lpennugtm8s.cloudfront.net/stores/453/052/products/tecido-automotivo-jb-tecido-tim-orig-liso-granit-cinza-escuro-894-11-ecfc7010176a7478a915131908127849-640-0.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 100% 100%;
+    -fx-border-width: 15;
+    -fx-border-color:
+        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+        linear-gradient(#020b02, #3a3a3a),
+        linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%),
+        linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%),
+        linear-gradient(#2E2E2E 0%, #2E2E2E 50%, #2E2E2E 51%, #2E2E2E 100%);
+    -fx-border-insets: 0,1,4,5,6;
+    -fx-border-radius: 9,8,5,4,3;
+
+}
+
+.label {
+     -fx-font-size: 13pt;
+     -fx-effect: dropshadow(three-pass-box, derive(black, -20%), 5, 0, 0, 0);
+     -fx-font-family: 'Russo One', sans-serif;
+     -fx-text-fill: white;
+     -fx-opacity: 1;
+}
+
+.label-header {
+    -fx-font-size: 18pt;
+    -fx-font-family: 'New Rocker', sans-serif;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, derive(black, -20%), 5, 0, 0, 0);
+    -fx-opacity: 0.8;
+}
+
+.label-elementos{
+    -fx-font-size: 13pt;
+    -fx-font-family: 'New Rocker', sans-serif;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, derive(black, -20%), 5, 0, 0, 0);
+    -fx-opacity: 0.8;
+}
+
+.label-logo {
+    -fx-font-size: 25pt;
+    -fx-font-family: 'New Rocker', sans-serif;
+    -fx-text-fill:
+    linear-gradient(#FF4500 0%, #FF8C00 25%, #FFA500 75%, #FF0000 100%),
+    linear-gradient(white, white),
+    linear-gradient(#FFA500 0%, #FF8C00 20%, #FF4500 80%, #FF0000 100%),
+    linear-gradient(#FFA500 0%, #FF8C00 20%, #FF4500 80%, #FF0000 100%),
+    linear-gradient(#FFA500 0%, #FF8C00 50%, #FF4500 51%, #FF0000 100%);
+    -fx-color-insets: 0,1,4,5,6;
+    -fx-border-radius: 9,8,5,4,3;
+    -fx-effect: dropshadow(three-pass-box, derive(#FF0000, 20%), 20, 0, 0, 0);
+    -fx-opacity: 1;
+    -fx-alignment: 100%;
+}
+
+.table-view {
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+        transparent
+        transparent
+        derive(-fx-base, 80%)
+        transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 20pt;
+    -fx-font-family: "New Rocker";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+.split-pane:horizontal > .split-pane-divider {
+    -fx-border-color: transparent #1d1d1d transparent #1d1d1d;
+    -fx-background-color: transparent, derive(#1d1d1d,20%);
+}
+
+.split-pane {
+    -fx-padding: 1 0 0 0;
+}
+
+.menu-bar {
+    -fx-background-color: derive(#1d1d1d,20%);
+}
+
+.context-menu {
+    -fx-background-color: derive(#1d1d1d,50%);
+}
+
+.menu-bar .label {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Russo One";
+    -fx-text-fill: white;
+    -fx-opacity: 0.9;
+}
+
+.menu .left-container {
+    -fx-background-color: black;
+}
+
+.text-field {
+    -fx-padding: 5 22 5 22;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: black;
+    -fx-font-family: "Russo One", Helvetica, Arial, sans-serif;
+    -fx-font-size: 10pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-color-opacity: 0.8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+/*
+ * Metro style Push Button
+ * Author: Pedro Duque Vieira
+ * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
+ */
+.button {
+    -fx-padding: 5 22 5 22;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: black;
+    -fx-font-family: "New Rocker", Helvetica, Arial, sans-serif;
+    -fx-font-size: 10pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:hover {
+    -fx-background-color: #3a3a3a;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: #1d1d1d;
+}
+
+.button:focused {
+    -fx-border-color: white, white;
+    -fx-border-width: 1, 1;
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+
+.button:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30%);
+}
+
+/*
+ * Metro style Push Button
+ * Author: Pedro Duque Vieira
+ * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
+ */
+.button-btTip {
+    -fx-padding: 5 22 5 22;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+    -fx-border-radius: 100;
+    -fx-background-radius: 100;
+    -fx-background-color: blue;
+    -fx-font-family: "Russo One", Helvetica, Arial, sans-serif;
+    -fx-font-size: 10pt;
+    -fx-text-fill: #d8d8d8;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button-btTip:hover {
+    -fx-background-color: lightblue;
+}
+
+.button-btTip:pressed, .button:default:hover:pressed {
+  -fx-background-color: lightblue;
+  -fx-text-fill: #1d1d1d;
+}
+
+.button-btTip:focused {
+    -fx-border-color: red, red;
+    -fx-border-width: 2, 2;
+    -fx-border-style: solid, segments(1, 1);
+    -fx-border-radius: 100;
+    -fx-border-insets: 1 1 1 1, 0;
+}
+
+.button-btTip:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #1d1d1d;
+    -fx-text-fill: white;
+}
+
+.button-btTip:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+}
+
+.button-btTip:default:hover {
+    -fx-background-color: derive(-fx-focus-color,30%);
+}
+
+.progress-bar {
+    -fx-background-color: greenyellow;
+    -fx-border-width: 1;
+    -fx-border-color: #FF0000;
+    -fx-background-insets: 0, 1;
+    -fx-indeterminate-bar-length: 60;
+    -fx-indeterminate-bar-escape: true;
+    -fx-indeterminate-bar-flip: true;
+    -fx-indeterminate-bar-animation-time: 2;
+}
+.progress-bar .bar {
+    -fx-background-color: #FF0000;
+    -fx-background-insets: 0, 1, 2;
+    -fx-padding: 0.416667em; /* 5 */
+}
+
+.progress-bar:indeterminate .bar {
+    -fx-background-color: #FF8C00;
+}
+
+.progress-bar .track {
+    -fx-background-color: #FF0000;
+    -fx-background-insets:  0, 1;
+}
+
+.progress-bar:disabled {
+    -fx-opacity: 0.6;
+}
