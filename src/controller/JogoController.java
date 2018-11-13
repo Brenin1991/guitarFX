@@ -1,14 +1,15 @@
 package controller;
 
 import classes.Objeto;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,16 +18,18 @@ import java.util.ResourceBundle;
 public class JogoController implements Initializable {
 
     @FXML
-    private AnchorPane mainPane;
+    private AnchorPane MainPane = new AnchorPane();
 
-    @FXML
-    private Pane pane;
-
-    private Objeto obj1 = new Objeto();
-    private Objeto obj2 = new Objeto();
-    private Objeto obj3 = new Objeto();
-    private Objeto obj4 = new Objeto();
-    private Objeto obj5 = new Objeto();
+    private int pontos = 100;
+    private Pane braco = new Pane();
+    private Pane pontosPane = new Pane();
+    private Pane tempoPane = new Pane();
+    private Pane infoMusicasPane = new Pane();
+    private Label lbPontos = new Label("Pontos: "+pontos);
+    private Label lbStatus = new Label("PREPARADO!");
+    private Label lbNome = new Label("Nome");
+    private Label lbArtista = new Label("Artista, ano");
+    private Label lbTempo = new Label("Tempo: ");
 
     private Objeto nota1 = new Objeto();
     private Objeto nota2 = new Objeto();
@@ -34,116 +37,156 @@ public class JogoController implements Initializable {
     private Objeto nota4 = new Objeto();
     private Objeto nota5 = new Objeto();
 
-    @Override
+    private Objeto palheta1 = new Objeto();
+    private Objeto palheta2 = new Objeto();
+    private Objeto palheta3 = new Objeto();
+    private Objeto palheta4 = new Objeto();
+    private Objeto palheta5 = new Objeto();
+
     public void initialize(URL url, ResourceBundle rb) {
+        //-------------------------------------------------------------------------------------------------
+        nota1.criarCirculo(300, -20,15, 4, "#000000", "#04B404");
+        nota2.criarCirculo(350, -20,15, 4, "#000000", "#DF0101");
+        nota3.criarCirculo(400, -20,15, 4, "#000000", "#FFFF00");
+        nota4.criarCirculo(450, -20,15, 4, "#000000", "#01A9DB");
+        nota5.criarCirculo(500, -20,15, 4, "#000000", "#FF8000");
 
-        obj1.criarCirculo(300, 550, 20, 4, "#00FF00", "#000000");
-        obj2.criarCirculo(350, 550, 20, 4, "#FF0000", "#000000");
-        obj3.criarCirculo(400, 550, 20, 4, "#FFFF00", "#000000");
-        obj4.criarCirculo(450, 550, 20, 4, "#48D1CC", "#000000");
-        obj5.criarCirculo(500, 550, 20, 4, "#FFA500", "#000000");
+        palheta1.criarCirculo(300, 550,20, 5, "#04B404", "#000000");
+        palheta2.criarCirculo(350, 550,20, 5, "#DF0101", "#000000");
+        palheta3.criarCirculo(400, 550,20, 5, "#FFFF00", "#000000");
+        palheta4.criarCirculo(450, 550,20, 5, "#01A9DB", "#000000");
+        palheta5.criarCirculo(500, 550,20, 5, "#FF8000", "#000000");
 
-        nota1.criarCirculo(300, 30, 15, 4,"#000000", "#00FF00");
-        nota2.criarCirculo(350, 30, 15, 4,"#000000", "#FF0000");
-        nota3.criarCirculo(400, 30, 15, 4,"#000000", "#FFFF00");
-        nota4.criarCirculo(450, 30, 15, 4,"#000000", "#48D1CC");
-        nota5.criarCirculo(500, 30, 15, 4,"#000000", "#FFA500");
+        MainPane.setPrefSize(800, 600);
+        MainPane.setStyle(" -fx-background-image: url(\"https://abrilvejasp.files.wordpress.com/2016/12/metallica1.jpg\"); -fx-background-repeat: no-repeat;   -fx-background-size: 100% 100%;");
+        pontosPane.setPrefSize(250,50);
+        pontosPane.setLayoutX(0);
+        pontosPane.setLayoutY(500);
+        pontosPane.getStyleClass().add("background-amplificador");
+        pontosPane.getChildren().add(lbPontos);
+        lbPontos.getStyleClass().add("label-header");
+        lbPontos.setLayoutX(20);
+        lbPontos.setLayoutY(6);
 
-        mainPane.getChildren().addAll(obj1.getCirculo(), obj2.getCirculo(), obj3.getCirculo(), obj4.getCirculo(), obj5.getCirculo(), nota1.getCirculo(), nota2.getCirculo(), nota3.getCirculo(), nota4.getCirculo(), nota5.getCirculo());
+        tempoPane.setPrefSize(250,50);
+        tempoPane.setLayoutX(0);
+        tempoPane.setLayoutY(550);
+        tempoPane.getStyleClass().add("background-amplificador");
+        tempoPane.getChildren().add(lbTempo);
+        lbTempo.getStyleClass().add("label-header");
+        lbTempo.setLayoutX(20);
+        lbTempo.setLayoutY(6);
 
-        //gatilho();
-        mainPane.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override public void handle(KeyEvent event) {
-                gatilho(event);
+        infoMusicasPane.setPrefSize(250,60);
+        infoMusicasPane.setLayoutX(0);
+        infoMusicasPane.setLayoutY(0);
+        infoMusicasPane.getStyleClass().add("background-amplificador");
+        infoMusicasPane.getChildren().add(lbNome);
+        infoMusicasPane.getChildren().add(lbArtista);
+        lbNome.getStyleClass().add("label-header");
+        lbNome.setLayoutX(20);
+        lbNome.setLayoutY(4);
+        lbArtista.getStyleClass().add("label-elementos");
+        lbArtista.setLayoutX(20);
+        lbArtista.setLayoutY(30);
 
+        braco.setPrefSize(300,600);
+        braco.setLayoutX(250);
+        braco.setLayoutY(0);
+        braco.getStyleClass().add("background-braco");
+        braco.getChildren().add(lbStatus);
+        lbStatus.getStyleClass().add("label-header");
+        lbStatus.setLayoutX(75);
+        lbStatus.setLayoutY(30);
+
+        MainPane.getChildren().add(braco);
+        MainPane.getChildren().add(pontosPane);
+        MainPane.getChildren().add(infoMusicasPane);
+        MainPane.getChildren().add(tempoPane);
+        //--------------------------------------------------------------------------------------------------
+        final Group grupo = new Group(nota1.getCirculo(), nota2.getCirculo(), nota3.getCirculo(), nota4.getCirculo(), nota5.getCirculo(),palheta1.getCirculo(), palheta2.getCirculo(), palheta3.getCirculo(), palheta4.getCirculo(), palheta5.getCirculo());
+
+        gatilho();
+
+        MainPane.getChildren().add(grupo);
+
+
+    }
+
+    public void gatilho(){
+        MainPane.setOnKeyPressed(e ->{
+            //notas
+            if(e.getCode() == KeyCode.DIGIT1){
+                nota1.setVerificaMovimento(true);
+                nota1.mover();
             }
+            else if(e.getCode() == KeyCode.DIGIT2){
+                nota2.setVerificaMovimento(true);
+                nota2.mover();
+            }
+            else if(e.getCode() == KeyCode.DIGIT3){
+                nota3.setVerificaMovimento(true);
+                nota3.mover();
+            }
+            else if(e.getCode() == KeyCode.DIGIT4){
+                nota4.setVerificaMovimento(true);
+                nota4.mover();
+            }
+            else if(e.getCode() == KeyCode.DIGIT5){
+                nota5.setVerificaMovimento(true);
+                nota5.mover();
+            }
+            //palhetas
+            if(e.getCode() == KeyCode.A){
+                palheta1.setVerificaAnimacao(true);
+                palheta1.animacao();
+                examineColisao(nota1.getCirculo(), palheta1.getCirculo());
+            }
+            else if(e.getCode() == KeyCode.S){
+                palheta2.setVerificaAnimacao(true);
+                palheta2.animacao();
+                examineColisao(nota2.getCirculo(), palheta2.getCirculo());
+            }
+            else if(e.getCode() == KeyCode.J){
+                palheta3.setVerificaAnimacao(true);
+                palheta3.animacao();
+                examineColisao(nota3.getCirculo(), palheta3.getCirculo());
+            }
+            else if(e.getCode() == KeyCode.K){
+                palheta4.setVerificaAnimacao(true);
+                palheta4.animacao();
+                examineColisao(nota4.getCirculo(), palheta4.getCirculo());
+            }
+            else if(e.getCode() == KeyCode.L){
+                palheta5.setVerificaAnimacao(true);
+                palheta5.animacao();
+                examineColisao(nota5.getCirculo(), palheta5.getCirculo());
+            }
+
         });
     }
 
-    public void gatilho(KeyEvent event) {
-        //NOTAS
-        if (event.getCode() == KeyCode.DIGIT1) {
-            nota1.setVerificaMovimento(true);
-            nota1.mover();
-            if (event.getCode() == KeyCode.DIGIT1) {
-                nota1.setVerificaMovimento(false);
-                nota1.mover();
+    public void examineColisao (Shape nota, Shape palheta) {
+        boolean colisao = false;
+        if (palheta != nota) {
+            Shape intersect = Shape.intersect(nota, palheta);
+            if (intersect.getBoundsInLocal().getWidth() != -1) {
+                colisao = true;
             }
         }
-        if (event.getCode() == KeyCode.DIGIT2) {
-            nota2.setVerificaMovimento(true);
-            nota2.mover();
-            if (event.getCode() == KeyCode.DIGIT2) {
-                nota2.setVerificaMovimento(false);
-                nota2.mover();
-            }
+        if (colisao) {
+            pontos += 10;
+            lbPontos.setText("Pontos: " + pontos);
+            lbStatus.setText("ACERTOU! +10");
+            lbStatus.setTextFill(Color.web("#2EFE2E"));
         }
-        if (event.getCode() == KeyCode.DIGIT3) {
-            nota3.setVerificaMovimento(true);
-            nota3.mover();
-            if (event.getCode() == KeyCode.DIGIT3) {
-                nota3.setVerificaMovimento(false);
-                nota3.mover();
-            }
-        }
-        if (event.getCode() == KeyCode.DIGIT4) {
-            nota4.setVerificaMovimento(true);
-            nota4.mover();
-            if (event.getCode() == KeyCode.DIGIT4) {
-                nota4.setVerificaMovimento(false);
-                nota4.mover();
-            }
-        }
-        if (event.getCode() == KeyCode.DIGIT5) {
-            nota5.setVerificaMovimento(true);
-            nota5.mover();
-            if (event.getCode() == KeyCode.DIGIT5) {
-                nota5.setVerificaMovimento(false);
-                nota5.mover();
-            }
+        if (!colisao) {
+            pontos -= 10;
+            lbPontos.setText("Pontos: " + pontos);
+            lbStatus.setText("ERROOU! -10");
+            lbStatus.setTextFill(Color.web("#FF0000"));
         }
 
-        //PALHETA
-        if (event.getCode() == KeyCode.A) {
-            obj1.setVerificaAnimacao(true);
-            obj1.animacao();
-            if (event.getCode() == KeyCode.A) {
-                obj1.setVerificaAnimacao(false);
-                obj1.animacao();
-            }
-        }
-        if (event.getCode() == KeyCode.S) {
-            obj2.setVerificaAnimacao(true);
-            obj2.animacao();
-            if (event.getCode() == KeyCode.S) {
-                obj2.setVerificaAnimacao(false);
-                obj2.animacao();
-            }
-        }
-        if (event.getCode() == KeyCode.D) {
-            obj3.setVerificaAnimacao(true);
-            obj3.animacao();
-            if (event.getCode() == KeyCode.D) {
-                obj3.setVerificaAnimacao(false);
-                obj3.animacao();
-            }
-        }
-        if (event.getCode() == KeyCode.J) {
-            obj4.setVerificaAnimacao(true);
-            obj4.animacao();
-            if (event.getCode() == KeyCode.J) {
-                obj4.setVerificaAnimacao(false);
-                obj4.animacao();
-            }
-        }
-        if (event.getCode() == KeyCode.K) {
-            obj5.setVerificaAnimacao(true);
-            obj5.animacao();
-            if (event.getCode() == KeyCode.K) {
-                obj5.setVerificaAnimacao(false);
-                obj5.animacao();
-            }
-        }
+
     }
-
 }

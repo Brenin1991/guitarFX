@@ -2,19 +2,15 @@ package jogo;
 
 import classes.Objeto;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 
 public class Jogo extends Application {
@@ -32,7 +28,6 @@ public class Jogo extends Application {
     private Label lbArtista = new Label("Artista, ano");
     private Label lbTempo = new Label("Tempo: ");
 
-
     private Objeto nota1 = new Objeto();
     private Objeto nota2 = new Objeto();
     private Objeto nota3 = new Objeto();
@@ -45,9 +40,10 @@ public class Jogo extends Application {
     private Objeto palheta4 = new Objeto();
     private Objeto palheta5 = new Objeto();
 
+    private static Stage stage;
 
-    public static void main(String[] args) { launch(args); }
-    @Override public void start(Stage stage) throws Exception {
+    @Override
+    public void start(Stage stage) throws Exception {
         stage.setTitle("GuitarFX - Game");
         stage.setResizable(false);
         //-------------------------------------------------------------------------------------------------
@@ -197,5 +193,16 @@ public class Jogo extends Application {
         }
 
 
-}
+    }
+
+    public static void main(String[] args) { launch(args); }
+
+    public static Stage GetStage(){
+        return stage;
+    }
+
+    public static void SetStage(Stage stage){
+        Jogo.stage = stage;
+    }
+
 }

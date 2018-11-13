@@ -5,6 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import jogo.Jogo;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main extends Application {
 
@@ -30,6 +34,11 @@ public class Main extends Application {
         Parent principalFXML = FXMLLoader.load(getClass().getResource("../view/PrincipalFXML.fxml"));
         principalScene = new Scene(principalFXML, 800, 600);
 
+        Parent jogoFXML = FXMLLoader.load(getClass().getResource("../view/JogoFXML.fxml"));
+        jogoScene = new Scene(jogoFXML, 800, 600);
+
+
+
         mainScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
         mainScene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
         principalScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
@@ -50,9 +59,24 @@ public class Main extends Application {
                 break;
             case "cadastro":
                 stage.setScene(cadastroScene);
+            case "jogo":
+                janelaJogo();
+                break;
 
         }
     }
+
+    public static void janelaJogo(){
+        Jogo jogo = new Jogo();
+
+        try {
+            jogo.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //close();
+    }
+
 
     public static void main(String[] args) {
         launch(args);
