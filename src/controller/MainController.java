@@ -27,13 +27,14 @@ public class MainController implements Initializable {
     @FXML
     private Button btLogin;
 
-    private Usuario usuario;
-    private UsuarioDAO usuarioDAO;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btLogin.setOnMouseClicked((MouseEvent e) -> {
                 Main.trocaTela("principal");
+        });
+
+        btRegister.setOnMouseClicked((MouseEvent e) -> {
+            Main.trocaTela("cadastro");
         });
     }
 

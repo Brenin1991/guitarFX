@@ -14,10 +14,24 @@ public class PrincipalController implements Initializable {
     @FXML
     private Button btPlay = new Button();
 
+    @FXML
+    private Button btRank = new Button();
+
+    @FXML
+    private Button btQuit = new Button();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         btPlay.setOnMouseClicked((MouseEvent e) -> {
-            Main.trocaTela("jogo");
+            Main.trocaTela("listaMusicas");
+        });
+
+        //btPlay.setOnMouseClicked((MouseEvent e) -> {
+        //   Main.trocaTela("jogo");
+        //});
+
+        btQuit.setOnMouseClicked((MouseEvent e) -> {
+            Main.trocaTela("main");
         });
     }
 
