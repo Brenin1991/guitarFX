@@ -117,8 +117,8 @@
                         </VBox>
                     </children>
                 </Pane>
-            <Label layoutX="50.0" layoutY="35.0" styleClass="label-header" text="Logado: Brenin" />
-            <Label layoutX="600.0" layoutY="35.0" styleClass="label-header" text="Pontos: 1000" />
+            <Label fx:id="lbUserNome" layoutX="50.0" layoutY="35.0" styleClass="label-header" text="Logado: Brenin" />
+            <Label fx:id="lbUserPontos" layoutX="600.0" layoutY="35.0" styleClass="label-header" text="Pontos: 1000" />
             </children>
         </Pane>
     </center>

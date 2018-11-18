@@ -13,15 +13,17 @@ import java.util.logging.Logger;
 public class FabricaConexao {
 
     //private static Connection con;
-    private static final String DRIVER = "org.sqlite.JDBC";
-    private static final String URL = "jdbc:sqlite:dados.db";
+    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String USER = "info17_breno";
+    private static final String PASSWORD = "1234";
+    private static final String URL = "jdbc:mysql://infoprojetos.com.br:3132/info17_breno?useTimezone=true&serverTimezone=UTC";
 
     public static Connection getConnection(){
         try{
             Class.forName(DRIVER);
 
             System.out.println("Success: Connected!");
-            return DriverManager.getConnection(URL);
+            return DriverManager.getConnection(URL, USER, PASSWORD);
         }
         catch(ClassNotFoundException | SQLException error){
             throw new RuntimeException("Error: Not connected!", error);

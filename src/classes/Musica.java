@@ -3,12 +3,12 @@ package classes;
 public class Musica {
     private int id;
     private String autor;
-    private String nome;
-    private Genero genero;
-    private String ano;
+    private String musica;
+    private int genero;
+    private int ano;
     private String descricao;
-    private int vezesJogada;
     private float tempo;
+    private String linkImagem;
     private String linkYoutube;
 
     public int getId() {
@@ -27,27 +27,27 @@ public class Musica {
         this.autor = autor;
     }
 
-    public String getNome() {
-        return nome;
+    public String getMusica() {
+        return musica;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setMusica(String musica) {
+        this.musica = musica;
     }
 
-    public Genero getGenero() {
+    public int getGenero() {
         return genero;
     }
 
-    public void setGenero(Genero genero) {
+    public void setGenero(int genero) {
         this.genero = genero;
     }
 
-    public String getAno() {
+    public int getAno() {
         return ano;
     }
 
-    public void setAno(String ano) {
+    public void setAno(int ano) {
         this.ano = ano;
     }
 
@@ -59,14 +59,6 @@ public class Musica {
         this.descricao = descricao;
     }
 
-    public int getVezesJogada() {
-        return vezesJogada;
-    }
-
-    public void setVezesJogada(int vezesJogada) {
-        this.vezesJogada = vezesJogada;
-    }
-
     public float getTempo() {
         return tempo;
     }
@@ -75,11 +67,24 @@ public class Musica {
         this.tempo = tempo;
     }
 
+    public String getLinkImagem() {
+        return linkImagem;
+    }
+
+    public void setLinkImagem(String linkImagem) {
+        this.linkImagem = linkImagem;
+    }
+
     public String getLinkYoutube() {
         return linkYoutube;
     }
 
     public void setLinkYoutube(String linkYoutube) {
         this.linkYoutube = linkYoutube;
+    }
+
+    @Override
+    public String toString() {
+        return ""+musica+" - "+autor;
     }
 }

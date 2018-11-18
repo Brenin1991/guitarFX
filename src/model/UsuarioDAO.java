@@ -6,12 +6,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UsuarioDAO {
 
-    public boolean create(Usuario usuario){
+    public boolean createUsuario(Usuario usuario){
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         int registros = 0;
@@ -20,8 +21,8 @@ public class UsuarioDAO {
 
         if(conf != true){
             try {
-                stmt = con.prepareStatement("INSERT INTO usuario (nome, email, senha,"+
-                        " total_pontos, nivel) VALUES (?,?,?,?,?)");
+                stmt = con.prepareStatement("INSERT INTO usuario (usuario, email, senha,"+
+                        " pontos, nivel) VALUES (?,?,?,?,?)");
 
                 stmt.setString(1, usuario.getNome());
                 stmt.setString(2,usuario.getEmail());
@@ -45,7 +46,7 @@ public class UsuarioDAO {
         }
     }
 
-    public Usuario select(int id){
+    public Usuario selectUsuario(int id){
         Usuario usuario = null;
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
@@ -80,7 +81,7 @@ public class UsuarioDAO {
     }
 
 
-    public boolean update(Usuario usuario){
+    public boolean editarUsuario(Usuario usuario){
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         int registros = 0;
@@ -129,10 +130,10 @@ public class UsuarioDAO {
                 usuario = new Usuario();
 
                 usuario.setId(rs.getInt("id"));
-                usuario.setNome(rs.getString("nome"));
+                usuario.setNome(rs.getString("usuario"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
-                usuario.setTotalPontos(rs.getInt("total_pontos"));
+                usuario.setTotalPontos(rs.getInt("pontos"));
                 usuario.setNivel(rs.getInt("nivel"));
                 check = true;
             }
@@ -169,5 +170,39 @@ public class UsuarioDAO {
         }
 
         return check;
+    }
+
+    public ArrayList<Usuario> selectUsuarioLista(){
+        ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+        Usuario usuario;
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            con = FabricaConexao.getConnection();
+            stmt = con.prepareStatement("SELECT * FROM usuario");
+
+            rs = stmt.executeQuery();
+
+            while(rs.next()){
+                usuario = new Usuario();
+
+                usuario.setId(rs.getInt("id"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setTotalPontos(rs.getInt("total_pontos"));
+                usuario.setNivel(rs.getInt("nivel"));
+
+                listaUsuarios.add(usuario);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            FabricaConexao.closeConnection(con, stmt, rs);
+        }
+
+        return listaUsuarios;
     }
 }

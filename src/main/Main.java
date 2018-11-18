@@ -1,5 +1,7 @@
 package main;
 
+import classes.Musica;
+import classes.Usuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import jogo.Jogo;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -59,27 +62,40 @@ public class Main extends Application {
         primaryStage.show();
 
     }
-    public static void trocaTela(String scr){
+    public static void trocaTela(String scr, Usuario usuario, Musica musica){
         switch (scr){
             case "main":
                 stage.setScene(mainScene);
+                notifyAllListeners("main", usuario, musica);
                 break;
             case "principal":
                 stage.setScene(principalScene);
+                notifyAllListeners("principal", usuario, musica);
                 break;
             case "cadastro":
                 stage.setScene(cadastroScene);
+                notifyAllListeners("cadastro", usuario, musica);
                 break;
             case "listaMusicas":
                 stage.setScene(listaMusicasScene);
+                notifyAllListeners("listaMusicas", usuario, musica);
                 break;
             case "informacoesMusica":
                 stage.setScene(informacoesMusicaScene);
+                notifyAllListeners("informacoesMusica", usuario, musica);
                 break;
             case "jogo":
                 janelaJogo();
                 break;
         }
+    }
+
+    public static void trocaTela(String scr){
+        trocaTela(scr, null, null);
+    }
+
+    public static void trocaTela(String scr, Usuario usuario){
+        trocaTela(scr, usuario, null);
     }
 
     public static void janelaJogo(){
@@ -94,5 +110,26 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    //--------------------------------------------------------------------
+    private static ArrayList<OnChangeScreen> listeners = new ArrayList<>();
+
+    public static interface OnChangeScreen{
+        void onScreenChanged(String newScreen, Usuario usuario, Musica musica);
+    }
+
+    public static void addOnChangeScreenListener(OnChangeScreen newListener){
+        listeners.add(newListener);
+    }
+
+    private static void notifyAllListeners(String newScreen, Usuario usuario, Musica musica){
+        for(OnChangeScreen l : listeners){
+            l.onScreenChanged(newScreen, usuario, musica);
+        }
+    }
+
+    public static void fechar(){
+        stage.close();
     }
 }

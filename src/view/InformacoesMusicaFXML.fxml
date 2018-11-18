@@ -98,7 +98,7 @@
                                           <Insets left="15.0" top="15.0" />
                                        </padding>
                                     </Label>
-                                    <Label fx:id="lbLogin12" layoutY="30.0" styleClass="label-elementos" text="Nome da musica" textAlignment="CENTER" textFill="WHITE">
+                                    <Label fx:id="lbNomeMusica" layoutY="30.0" styleClass="label-elementos" text="Nome da musica" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Arial" size="25.0" />
                                        </font>
@@ -106,7 +106,7 @@
                                           <Insets left="15.0" top="20.0" />
                                        </padding>
                                     </Label>
-                                    <Label fx:id="lbLogin121" layoutY="60.0" styleClass="label-elementos" text="Nome do artista" textAlignment="CENTER" textFill="WHITE">
+                                    <Label fx:id="lbNomeArtista" layoutY="60.0" styleClass="label-elementos" text="Nome do artista" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Arial" size="25.0" />
                                        </font>
@@ -114,7 +114,7 @@
                                           <Insets left="15.0" top="15.0" />
                                        </padding>
                                     </Label>
-                                    <Label fx:id="lbLogin1211" layoutY="90.0" styleClass="label-elementos" text="ano: " textAlignment="CENTER" textFill="WHITE">
+                                    <Label fx:id="lbAno" layoutY="90.0" styleClass="label-elementos" text="ano: " textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Arial" size="25.0" />
                                        </font>
@@ -122,7 +122,7 @@
                                           <Insets left="15.0" top="20.0" />
                                        </padding>
                                     </Label>
-                                    <Label fx:id="lbLogin12111" layoutY="120.0" styleClass="label-elementos" text="Genero: " textAlignment="CENTER" textFill="WHITE">
+                                    <Label fx:id="lbGenero" layoutY="120.0" styleClass="label-elementos" text="Genero: " textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Arial" size="25.0" />
                                        </font>
@@ -130,7 +130,7 @@
                                           <Insets left="15.0" top="15.0" />
                                        </padding>
                                     </Label>
-                                    <Label fx:id="lbLogin121111" layoutY="146.0" prefHeight="25.0" prefWidth="368.0" styleClass="label-elementos" text="Sobre:" textAlignment="CENTER" textFill="WHITE">
+                                    <Label fx:id="lbDescricao" layoutY="146.0" prefHeight="25.0" prefWidth="368.0" styleClass="label-elementos" text="Sobre:" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Arial" size="25.0" />
                                        </font>
@@ -150,10 +150,10 @@
                                           <Insets left="15.0" top="15.0" />
                                        </padding>
                                     </Label>
-                                    <TableView layoutX="14.0" layoutY="45.0" prefHeight="269.0" prefWidth="330.0">
+                                    <TableView fx:id="tvRankMusica" layoutX="14.0" layoutY="45.0" prefHeight="269.0" prefWidth="330.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="C1" />
-                                        <TableColumn prefWidth="75.0" text="C2" />
+                                        <TableColumn fx:id="tcUsuario" prefWidth="165.0" text="Jogador" />
+                                          <TableColumn fx:id="tcPontos" prefWidth="165.0" text="Pontos" />
                                       </columns>
                                     </TableView>
                                  </children>
@@ -167,7 +167,7 @@
                                     <Insets left="20.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="btVoltarLista1" mnemonicParsing="false" text="Voltar Munu" />
+                              <Button fx:id="btVoltarPrincipal" mnemonicParsing="false" text="Voltar Munu" />
                               <Button fx:id="btJogar" mnemonicParsing="false" text="Jogar">
                                  <HBox.margin>
                                     <Insets left="320.0" />
@@ -179,8 +179,8 @@
                         </VBox>
                     </children>
                 </Pane>
-            <Label layoutX="50.0" layoutY="35.0" styleClass="label-header" text="Logado: Brenin" />
-            <Label layoutX="600.0" layoutY="35.0" styleClass="label-header" text="Pontos: 1000" />
+            <Label fx:id="lbUserNome" layoutX="50.0" layoutY="35.0" styleClass="label-header" text="Logado: Brenin" />
+            <Label fx:id="lbUserPontos" layoutX="600.0" layoutY="35.0" styleClass="label-header" text="Pontos: 1000" />
             </children>
         </Pane>
     </center>

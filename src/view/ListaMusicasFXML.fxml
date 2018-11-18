@@ -2,7 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -89,14 +89,14 @@
                                         <Insets left="270.0" top="20.0" />
                                     </VBox.margin>
                                 </Label>
-                        <ChoiceBox fx:id="cbListaMusicas" prefWidth="150.0" />
+                        <ComboBox fx:id="cbListaMusicas" prefHeight="26.0" prefWidth="227.0" promptText="Selecione uma musica" />
                         <Button fx:id="btSelecionarMusica" mnemonicParsing="false" text="Selecionar" />
                             </children>
                         </VBox>
                     </children>
                 </Pane>
-            <Label layoutX="50.0" layoutY="35.0" styleClass="label-header" text="Logado: Brenin" />
-            <Label layoutX="600.0" layoutY="35.0" styleClass="label-header" text="Pontos: 1000" />
+            <Label fx:id="lbUserNome" layoutX="50.0" layoutY="35.0" styleClass="label-header" text="Logado: Brenin" />
+            <Label fx:id="lbUserPontos" layoutX="600.0" layoutY="35.0" styleClass="label-header" text="Pontos: 1000" />
             </children>
         </Pane>
     </center>
