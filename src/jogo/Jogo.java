@@ -3,12 +3,10 @@ package jogo;
 import classes.Musica;
 import classes.Objeto;
 import classes.Usuario;
-import javafx.application.Application;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
@@ -16,17 +14,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
-import main.Main;
 import model.MusicaDAO;
 import model.UsuarioDAO;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
+public class Jogo{
 
-public class Jogo implements Initializable {
-
-    public static Scene scene;
+    public Scene scene;
     private int pontos = 100;
     private AnchorPane mainPane = new AnchorPane();
     private Pane braco = new Pane();
@@ -38,6 +33,7 @@ public class Jogo implements Initializable {
     private Label lbNome = new Label("Nome");
     private Label lbArtista = new Label("Artista, ano");
     private Label lbTempo = new Label("Tempo: ");
+    private String bgIMG = new String();
 
     private Objeto nota1 = new Objeto();
     private Objeto nota2 = new Objeto();
@@ -56,97 +52,90 @@ public class Jogo implements Initializable {
     private Musica musica = new Musica();
     private MusicaDAO musicaDAO = new MusicaDAO();
 
-    //private static Stage stage;
+    public void initialize() {
+        nota1.criarCirculo(300, -20, 15, 4, "#000000", "#04B404");
+        nota2.criarCirculo(350, -20, 15, 4, "#000000", "#DF0101");
+        nota3.criarCirculo(400, -20, 15, 4, "#000000", "#FFFF00");
+        nota4.criarCirculo(450, -20, 15, 4, "#000000", "#01A9DB");
+        nota5.criarCirculo(500, -20, 15, 4, "#000000", "#FF8000");
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+        palheta1.criarCirculo(300, 550, 20, 5, "#04B404", "#000000");
+        palheta2.criarCirculo(350, 550, 20, 5, "#DF0101", "#000000");
+        palheta3.criarCirculo(400, 550, 20, 5, "#FFFF00", "#000000");
+        palheta4.criarCirculo(450, 550, 20, 5, "#01A9DB", "#000000");
+        palheta5.criarCirculo(500, 550, 20, 5, "#FF8000", "#000000");
 
+        mainPane.setPrefSize(800, 600);
+        mainPane.setStyle(" -fx-background-image: url(" + musica.getLinkImagem() + "); -fx-background-repeat: no-repeat;   -fx-background-size: 100% 100%;");
+        pontosPane.setPrefSize(250, 50);
+        pontosPane.setLayoutX(0);
+        pontosPane.setLayoutY(500);
+        pontosPane.getStyleClass().add("background-amplificador");
+        pontosPane.getChildren().add(lbPontos);
+        lbPontos.getStyleClass().add("label-header");
+        lbPontos.setLayoutX(20);
+        lbPontos.setLayoutY(6);
+
+        tempoPane.setPrefSize(250, 50);
+        tempoPane.setLayoutX(0);
+        tempoPane.setLayoutY(550);
+        tempoPane.getStyleClass().add("background-amplificador");
+        tempoPane.getChildren().add(lbTempo);
+        lbTempo.getStyleClass().add("label-header");
+        lbTempo.setLayoutX(20);
+        lbTempo.setLayoutY(6);
+
+        infoMusicasPane.setPrefSize(250, 60);
+        infoMusicasPane.setLayoutX(0);
+        infoMusicasPane.setLayoutY(0);
+        infoMusicasPane.getStyleClass().add("background-amplificador");
+        infoMusicasPane.getChildren().add(lbNome);
+        infoMusicasPane.getChildren().add(lbArtista);
+        lbNome.getStyleClass().add("label-header");
+        lbNome.setLayoutX(20);
+        lbNome.setLayoutY(4);
+        lbArtista.getStyleClass().add("label-elementos");
+        lbArtista.setLayoutX(20);
+        lbArtista.setLayoutY(30);
+
+        braco.setPrefSize(300, 600);
+        braco.setLayoutX(250);
+        braco.setLayoutY(0);
+        braco.getStyleClass().add("background-braco");
+        braco.getChildren().add(lbStatus);
+        lbStatus.getStyleClass().add("label-header");
+        lbStatus.setLayoutX(75);
+        lbStatus.setLayoutY(30);
+
+        mainPane.getChildren().add(braco);
+        mainPane.getChildren().add(pontosPane);
+        mainPane.getChildren().add(infoMusicasPane);
+        mainPane.getChildren().add(tempoPane);
+
+        final Group grupo = new Group(mainPane, nota1.getCirculo(), nota2.getCirculo(), nota3.getCirculo(), nota4.getCirculo(), nota5.getCirculo(), palheta1.getCirculo(), palheta2.getCirculo(), palheta3.getCirculo(), palheta4.getCirculo(), palheta5.getCirculo());
+        scene = new Scene(grupo, 800, 600);
+        scene.getStylesheets().add("style/Style.css");
+        scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
+        scene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
     }
 
     public void iniciaPartida (Stage stage, int idUsuario, int idMusica){
+        stage.setTitle("GuitarFX - Game");
+        stage.setResizable(false);
 
-            carregarInfoMusica(idMusica);
-            carregarInfoUsuario(idUsuario);
+        carregarInfoMusica(idMusica);
+        carregarInfoUsuario(idUsuario);
 
-            stage.setTitle("GuitarFX - Game");
-            stage.setResizable(false);
-            //-------------------------------------------------------------------------------------------------
-            nota1.criarCirculo(300, -20, 15, 4, "#000000", "#04B404");
-            nota2.criarCirculo(350, -20, 15, 4, "#000000", "#DF0101");
-            nota3.criarCirculo(400, -20, 15, 4, "#000000", "#FFFF00");
-            nota4.criarCirculo(450, -20, 15, 4, "#000000", "#01A9DB");
-            nota5.criarCirculo(500, -20, 15, 4, "#000000", "#FF8000");
+        initialize();
+        gameLoop(scene, stage);
 
-            palheta1.criarCirculo(300, 550, 20, 5, "#04B404", "#000000");
-            palheta2.criarCirculo(350, 550, 20, 5, "#DF0101", "#000000");
-            palheta3.criarCirculo(400, 550, 20, 5, "#FFFF00", "#000000");
-            palheta4.criarCirculo(450, 550, 20, 5, "#01A9DB", "#000000");
-            palheta5.criarCirculo(500, 550, 20, 5, "#FF8000", "#000000");
-
-            mainPane.setPrefSize(800, 600);
-            mainPane.setStyle(" -fx-background-image: url(" + musica.getLinkImagem() + "); -fx-background-repeat: no-repeat;   -fx-background-size: 100% 100%;");
-            pontosPane.setPrefSize(250, 50);
-            pontosPane.setLayoutX(0);
-            pontosPane.setLayoutY(500);
-            pontosPane.getStyleClass().add("background-amplificador");
-            pontosPane.getChildren().add(lbPontos);
-            lbPontos.getStyleClass().add("label-header");
-            lbPontos.setLayoutX(20);
-            lbPontos.setLayoutY(6);
-
-            tempoPane.setPrefSize(250, 50);
-            tempoPane.setLayoutX(0);
-            tempoPane.setLayoutY(550);
-            tempoPane.getStyleClass().add("background-amplificador");
-            tempoPane.getChildren().add(lbTempo);
-            lbTempo.getStyleClass().add("label-header");
-            lbTempo.setLayoutX(20);
-            lbTempo.setLayoutY(6);
-
-            infoMusicasPane.setPrefSize(250, 60);
-            infoMusicasPane.setLayoutX(0);
-            infoMusicasPane.setLayoutY(0);
-            infoMusicasPane.getStyleClass().add("background-amplificador");
-            infoMusicasPane.getChildren().add(lbNome);
-            infoMusicasPane.getChildren().add(lbArtista);
-            lbNome.getStyleClass().add("label-header");
-            lbNome.setLayoutX(20);
-            lbNome.setLayoutY(4);
-            lbArtista.getStyleClass().add("label-elementos");
-            lbArtista.setLayoutX(20);
-            lbArtista.setLayoutY(30);
-
-            braco.setPrefSize(300, 600);
-            braco.setLayoutX(250);
-            braco.setLayoutY(0);
-            braco.getStyleClass().add("background-braco");
-            braco.getChildren().add(lbStatus);
-            lbStatus.getStyleClass().add("label-header");
-            lbStatus.setLayoutX(75);
-            lbStatus.setLayoutY(30);
-
-            mainPane.getChildren().add(braco);
-            mainPane.getChildren().add(pontosPane);
-            mainPane.getChildren().add(infoMusicasPane);
-            mainPane.getChildren().add(tempoPane);
-            //--------------------------------------------------------------------------------------------------
-            final Group grupo = new Group(mainPane, nota1.getCirculo(), nota2.getCirculo(), nota3.getCirculo(), nota4.getCirculo(), nota5.getCirculo(), palheta1.getCirculo(), palheta2.getCirculo(), palheta3.getCirculo(), palheta4.getCirculo(), palheta5.getCirculo());
-            scene = new Scene(grupo, 800, 600);
-            scene.getStylesheets().add("style/Style.css");
-            scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
-            scene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
-
-
-
-            gatilho(scene, stage);
-
-            stage.setScene(scene);
-            stage.show();
+        stage.setScene(scene);
+        stage.show();
     }
 
-
-    public void gatilho(Scene scene, Stage stage){
+    public void gameLoop(Scene scene, Stage stage){
         scene.setOnKeyPressed(e ->{
+            //virfica jogo
             if(logicaJogo()){
                 stage.close();
             }
@@ -221,16 +210,6 @@ public class Jogo implements Initializable {
             lbStatus.setText("ERROOU! -10");
             lbStatus.setTextFill(Color.web("#FF0000"));
         }
-
-
-    }
-
-    public static Scene GetScene(){
-        return scene;
-    }
-
-    public static void SetScene(Scene scene){
-        Jogo.scene = scene;
     }
 
     public void carregarInfoMusica(int idMusica){
@@ -257,7 +236,6 @@ public class Jogo implements Initializable {
             alert.show();
 
             conf = true;
-
         }
         return conf;
     }
