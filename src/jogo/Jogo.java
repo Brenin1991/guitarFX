@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
@@ -37,7 +38,7 @@ public class Jogo implements Initializable {
     private Label lbNome = new Label("Nome");
     private Label lbArtista = new Label("Artista, ano");
     private Label lbTempo = new Label("Tempo: ");
-    
+
     private Objeto nota1 = new Objeto();
     private Objeto nota2 = new Objeto();
     private Objeto nota3 = new Objeto();
@@ -55,7 +56,7 @@ public class Jogo implements Initializable {
     private Musica musica = new Musica();
     private MusicaDAO musicaDAO = new MusicaDAO();
 
-    private static Stage stage;
+    //private static Stage stage;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -135,15 +136,20 @@ public class Jogo implements Initializable {
             scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
             scene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
 
-            gatilho(scene);
+
+
+            gatilho(scene, stage);
 
             stage.setScene(scene);
             stage.show();
     }
 
 
-    public void gatilho(Scene scene){
+    public void gatilho(Scene scene, Stage stage){
         scene.setOnKeyPressed(e ->{
+            if(logicaJogo()){
+                stage.close();
+            }
             //notas
             if(e.getCode() == KeyCode.DIGIT1){
                 nota1.setVerificaMovimento(true);
@@ -239,4 +245,24 @@ public class Jogo implements Initializable {
         usuario = usuarioDAO.selectUsuario(idUsuario);
     }
 
+    public Boolean logicaJogo(){
+        Boolean conf = false;
+        if(pontos <= 0){
+            salvaDadosnoBanco();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Perdeu Playboy!");
+            alert.setHeaderText("Você precisa treinar!");
+            alert.setContentText("Sua pontuação na partida: "+pontos);
+            alert.show();
+
+            conf = true;
+
+        }
+        return conf;
+    }
+
+    public void salvaDadosnoBanco(){
+        System.out.println("Salvo!!!");
+    }
 }
