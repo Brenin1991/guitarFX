@@ -45,7 +45,7 @@ public class MainController implements Initializable {
 
         usuario = usuarioDAO.checkLogin(tfEmail.getText(), pfSenha.getText());
         if(usuario != null){
-            Main.trocaTela("principal", usuario, null);
+            Main.trocaTela("principal", usuario.getId());
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success!");

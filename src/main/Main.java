@@ -22,6 +22,7 @@ public class Main extends Application {
     private static Scene cadastroScene;
     private static Scene listaMusicasScene;
     private static Scene informacoesMusicaScene;
+    private static Scene rankGlobalScene;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -46,6 +47,9 @@ public class Main extends Application {
         Parent informacoesMusicaFXML = FXMLLoader.load(getClass().getResource("../view/InformacoesMusicaFXML.fxml"));
         informacoesMusicaScene = new Scene(informacoesMusicaFXML, 800, 600);
 
+        Parent rankGlobalFXML = FXMLLoader.load(getClass().getResource("../view/RankGlobalFXML.fxml"));
+        rankGlobalScene = new Scene(rankGlobalFXML, 800, 600);
+
         mainScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
         mainScene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
         principalScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
@@ -56,33 +60,38 @@ public class Main extends Application {
         listaMusicasScene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
         informacoesMusicaScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
         informacoesMusicaScene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
-
+        rankGlobalScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
+        rankGlobalScene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
 
         primaryStage.setScene(mainScene);
         primaryStage.show();
 
     }
-    public static void trocaTela(String scr, Usuario usuario, Musica musica){
+    public static void trocaTela(String scr, int idUsuario, int idMusica){
         switch (scr){
             case "main":
                 stage.setScene(mainScene);
-                notifyAllListeners("main", usuario, musica);
+                notifyAllListeners("main", idUsuario, idMusica);
                 break;
             case "principal":
                 stage.setScene(principalScene);
-                notifyAllListeners("principal", usuario, musica);
+                notifyAllListeners("principal", idUsuario, idMusica);
                 break;
             case "cadastro":
                 stage.setScene(cadastroScene);
-                notifyAllListeners("cadastro", usuario, musica);
+                notifyAllListeners("cadastro", idUsuario, idMusica);
                 break;
             case "listaMusicas":
                 stage.setScene(listaMusicasScene);
-                notifyAllListeners("listaMusicas", usuario, musica);
+                notifyAllListeners("listaMusicas", idUsuario, idMusica);
                 break;
             case "informacoesMusica":
                 stage.setScene(informacoesMusicaScene);
-                notifyAllListeners("informacoesMusica", usuario, musica);
+                notifyAllListeners("informacoesMusica", idUsuario, idMusica);
+                break;
+            case "rankGlobal":
+                stage.setScene(rankGlobalScene);
+                notifyAllListeners("rankGlobal", idUsuario, idMusica);
                 break;
             case "jogo":
                 janelaJogo();
@@ -91,11 +100,11 @@ public class Main extends Application {
     }
 
     public static void trocaTela(String scr){
-        trocaTela(scr, null, null);
+        trocaTela(scr, 0, 0);
     }
 
-    public static void trocaTela(String scr, Usuario usuario){
-        trocaTela(scr, usuario, null);
+    public static void trocaTela(String scr, int idUsuario){
+        trocaTela(scr, idUsuario, 0);
     }
 
     public static void janelaJogo(){
@@ -116,16 +125,16 @@ public class Main extends Application {
     private static ArrayList<OnChangeScreen> listeners = new ArrayList<>();
 
     public static interface OnChangeScreen{
-        void onScreenChanged(String newScreen, Usuario usuario, Musica musica);
+        void onScreenChanged(String newScreen, int idUsuario, int idMusica);
     }
 
     public static void addOnChangeScreenListener(OnChangeScreen newListener){
         listeners.add(newListener);
     }
 
-    private static void notifyAllListeners(String newScreen, Usuario usuario, Musica musica){
+    private static void notifyAllListeners(String newScreen, int idUsuario, int idMusica){
         for(OnChangeScreen l : listeners){
-            l.onScreenChanged(newScreen, usuario, musica);
+            l.onScreenChanged(newScreen, idUsuario, idMusica);
         }
     }
 

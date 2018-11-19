@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import main.Main;
 import model.MusicaDAO;
 import model.RankDAO;
+import model.UsuarioDAO;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -48,10 +49,11 @@ public class InformacoesMusicaController implements Initializable {
     @FXML
     private TableColumn<RankMusica, String> tcPontos;
 
-    private Usuario OBJusuario = new Usuario();
-    private Musica OBJmusica = new Musica();
-    private InfoMusica infoMusica;
+    private Usuario usuario = new Usuario();
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
+    private Musica musica = new Musica();
     private MusicaDAO musicaDAO = new MusicaDAO();
+    private InfoMusica infoMusica;
     private final RankDAO rankDAO = new RankDAO();
     private ArrayList<RankMusica> listaRankMusica = new ArrayList<>();
     private ObservableList<RankMusica> obsListaRankMusica;
@@ -59,14 +61,12 @@ public class InformacoesMusicaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
             @Override
-            public void onScreenChanged(String newScreen, Usuario usuario, Musica musica) {
+            public void onScreenChanged(String newScreen, int usuario, int musica) {
                 if(newScreen.equals("informacoesMusica")) {
-                    System.out.println("\nTela: " + newScreen + "\nUsuario: " + usuario.getNome() + "\nMusica: " + musica);
+                    System.out.println("\nTela: " + newScreen + "\nUsuario: " + usuario + "\nMusica: " + musica);
 
-                    OBJusuario = usuario;
-                    OBJmusica = musica;
-                    carregaInfoUsuario();
-                    carregaInfoMusica();
+                    carregaInfoUsuario(usuario);
+                    carregaInfoMusica(musica);
                     carregarRankingMusica();
                 }
             }
@@ -77,16 +77,17 @@ public class InformacoesMusicaController implements Initializable {
         });
 
         btVoltarLista.setOnMouseClicked((MouseEvent e) -> {
-            Main.trocaTela("listaMusicas", OBJusuario, null);
+            Main.trocaTela("listaMusicas", usuario.getId(), 0);
         });
 
         btVoltarPrincipal.setOnMouseClicked((MouseEvent e) -> {
-            Main.trocaTela("principal", OBJusuario, null);
+            Main.trocaTela("principal", usuario.getId(), 0);
         });
     }
 
-    public void carregaInfoMusica(){
-        infoMusica = musicaDAO.selectInfoMusica(OBJmusica.getId());
+    public void carregaInfoMusica(int idMusica){
+        musica = musicaDAO.selectMusica(idMusica);
+        infoMusica = musicaDAO.selectInfoMusica(musica.getId());
         lbNomeMusica.setText("Nome: "+infoMusica.getMusica());
         lbNomeArtista.setText("Autor: "+infoMusica.getAutor());
         lbAno.setText("Ano de lançamento: "+infoMusica.getAno());
@@ -94,16 +95,17 @@ public class InformacoesMusicaController implements Initializable {
         lbDescricao.setText("Descricao: "+infoMusica.getDescricao());
     }
 
-    public void carregaInfoUsuario(){
-        lbUserNome.setText("Usuario: "+ OBJusuario.getNome());
-        lbUserPontos.setText("Pontos: "+OBJusuario.getTotalPontos());
+    public void carregaInfoUsuario(int idUsuario){
+        usuario = usuarioDAO.selectUsuario(idUsuario);
+        lbUserNome.setText("Usuario: "+ usuario.getNome());
+        lbUserPontos.setText("Pontos: "+usuario.getTotalPontos());
     }
 
     public void carregarRankingMusica(){
         tcUsuario.setCellValueFactory(new PropertyValueFactory<>("Usuario"));
         tcPontos.setCellValueFactory(new PropertyValueFactory<>("Pontos"));
 
-        listaRankMusica = rankDAO.selectRankMusicaLista(OBJmusica.getId());
+        listaRankMusica = rankDAO.selectRankMusicaLista(musica.getId());
 
         obsListaRankMusica = FXCollections.observableArrayList(listaRankMusica);
 

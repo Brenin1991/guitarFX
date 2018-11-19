@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import main.Main;
 import model.MusicaDAO;
+import model.UsuarioDAO;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,25 +25,27 @@ public class ListaMusicasController implements Initializable {
     @FXML
     private Button btSelecionarMusica = new Button();
     @FXML
+    private Button btVoltar = new Button();
+    @FXML
     private ComboBox<Musica> cbListaMusicas = new ComboBox<>();
     @FXML
     private Label lbUserNome = new Label();
     @FXML
     private Label lbUserPontos = new Label();
 
-    private MusicaDAO musicaDAO = new MusicaDAO();
-    private Usuario OBJusuario = new Usuario();
+    private Usuario usuario = new Usuario();
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
     private Musica musica = new Musica();
+    private MusicaDAO musicaDAO = new MusicaDAO();
 
     public void initialize(URL url, ResourceBundle rb) {
         Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
             @Override
-            public void onScreenChanged(String newScreen, Usuario usuario, Musica musica) {
+            public void onScreenChanged(String newScreen, int usuario, int musica) {
                 if(newScreen.equals("listaMusicas")){
-                    System.out.println("\nTela: "+newScreen+"\nUsuario: "+ usuario.getNome() +"\nMusica: ");
+                    System.out.println("\nTela: "+newScreen+"\nUsuario: "+ usuario +"\nMusica: ");
 
-                    OBJusuario = usuario;
-                    carregaInfoUsuario();
+                    carregaInfoUsuario(usuario);
                 }
             }
         });
@@ -51,6 +54,10 @@ public class ListaMusicasController implements Initializable {
         btSelecionarMusica.setOnMouseClicked((MouseEvent e) -> {
             System.out.println(cbListaMusicas.getValue());
             selecionarMusica();
+        });
+
+        btVoltar.setOnMouseClicked((MouseEvent e) -> {
+            Main.trocaTela("principal", usuario.getId(), 0);
         });
     }
 
@@ -61,11 +68,12 @@ public class ListaMusicasController implements Initializable {
 
     public void selecionarMusica(){
         musica = cbListaMusicas.getSelectionModel().getSelectedItem();
-        Main.trocaTela("informacoesMusica", OBJusuario, musica);
+        Main.trocaTela("informacoesMusica", usuario.getId(), musica.getId());
     }
 
-    public void carregaInfoUsuario(){
-        lbUserNome.setText("Usuario: "+ OBJusuario.getNome());
-        lbUserPontos.setText("Pontos: "+OBJusuario.getTotalPontos());
+    public void carregaInfoUsuario(int idUsuario){
+        usuario = usuarioDAO.selectUsuario(idUsuario);
+        lbUserNome.setText("Usuario: "+ usuario.getNome());
+        lbUserPontos.setText("Pontos: "+ usuario.getTotalPontos());
     }
 }

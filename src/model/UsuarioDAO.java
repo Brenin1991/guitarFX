@@ -63,10 +63,10 @@ public class UsuarioDAO {
                 usuario = new Usuario();
 
                 usuario.setId(rs.getInt("id"));
-                usuario.setNome(rs.getString("nome"));
+                usuario.setNome(rs.getString("usuario"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
-                usuario.setTotalPontos(rs.getInt("total_pontos"));
+                usuario.setTotalPontos(rs.getInt("pontos"));
                 usuario.setNivel(rs.getInt("nivel"));
                 check = true;
             }

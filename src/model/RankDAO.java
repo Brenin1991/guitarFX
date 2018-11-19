@@ -1,6 +1,7 @@
 package model;
 
 import classes.RankMusica;
+import classes.RankUsuario;
 import fabricaConexao.FabricaConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,5 +44,36 @@ public class RankDAO {
         }
 
         return listaRankMusicas;
+    }
+
+    public ArrayList<RankUsuario> selectRankGlobalLista(){
+        ArrayList<RankUsuario> listaRankGlobal = new ArrayList<>();
+        RankUsuario rankUsuario;
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            con = FabricaConexao.getConnection();
+            stmt = con.prepareStatement("call lista_ranking_global();");
+
+            rs = stmt.executeQuery();
+
+            while(rs.next()){
+                rankUsuario = new RankUsuario();
+
+                rankUsuario.setUsuario(rs.getString("usuario"));
+                rankUsuario.setPontos(rs.getInt("pontos"));
+                rankUsuario.setNivel(rs.getInt("nivel"));
+
+                listaRankGlobal.add(rankUsuario);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RankDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            FabricaConexao.closeConnection(con, stmt, rs);
+        }
+
+        return listaRankGlobal;
     }
 }

@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import main.Main;
+import model.UsuarioDAO;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,24 +26,28 @@ public class PrincipalController implements Initializable {
     @FXML
     private Label lbUserPontos = new Label();
 
-    private Usuario OBJusuario = new Usuario();
+    private Usuario usuario = new Usuario();
+    private UsuarioDAO usuarioDAO = new UsuarioDAO();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Main.addOnChangeScreenListener(new Main.OnChangeScreen() {
             @Override
-            public void onScreenChanged(String newScreen, Usuario usuario, Musica musica) {
+            public void onScreenChanged(String newScreen, int usuario, int musica) {
                 if(newScreen.equals("principal")) {
-                    System.out.println("\nTela: " + newScreen + "\nUsuario: " + usuario.getNome() + "\nMusica: " + musica);
+                    System.out.println("\nTela: " + newScreen + "\nUsuario: " + usuario + "\nMusica: " + musica);
 
-                    OBJusuario = usuario;
-                    carregaInfoUsuario();
+                    carregaInfoUsuario(usuario);
                 }
             }
         });
 
         btPlay.setOnMouseClicked((MouseEvent e) -> {
-           Main.trocaTela("listaMusicas", OBJusuario, null);
+            Main.trocaTela("listaMusicas", usuario.getId());
+        });
+
+        btRank.setOnMouseClicked((MouseEvent e) -> {
+            Main.trocaTela("rankGlobal", usuario.getId());
         });
 
         btQuit.setOnMouseClicked((MouseEvent e) -> {
@@ -50,8 +55,9 @@ public class PrincipalController implements Initializable {
         });
     }
 
-    public void carregaInfoUsuario(){
-        lbUserNome.setText("Usuario: "+ OBJusuario.getNome());
-        lbUserPontos.setText("Pontos: "+OBJusuario.getTotalPontos());
+    public void carregaInfoUsuario(int idUsuario){
+        usuario = usuarioDAO.selectUsuario(idUsuario);
+        lbUserNome.setText("Usuario: "+ usuario.getNome());
+        lbUserPontos.setText("Pontos: "+usuario.getTotalPontos());
     }
 }
