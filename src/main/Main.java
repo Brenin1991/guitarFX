@@ -23,6 +23,7 @@ public class Main extends Application {
     private static Scene listaMusicasScene;
     private static Scene informacoesMusicaScene;
     private static Scene rankGlobalScene;
+    private static Scene jogoScene;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -94,7 +95,8 @@ public class Main extends Application {
                 notifyAllListeners("rankGlobal", idUsuario, idMusica);
                 break;
             case "jogo":
-                janelaJogo();
+                janelaJogo(idUsuario, idMusica);
+                notifyAllListeners("jogo", idUsuario, idMusica);
                 break;
         }
     }
@@ -107,11 +109,11 @@ public class Main extends Application {
         trocaTela(scr, idUsuario, 0);
     }
 
-    public static void janelaJogo(){
+    public static void janelaJogo(int idUsuario, int idMusica){
         Jogo jogo = new Jogo();
 
         try {
-            jogo.start(new Stage());
+            jogo.iniciaPartida(new Stage(), idUsuario, idMusica);
         } catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }

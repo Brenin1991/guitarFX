@@ -73,7 +73,7 @@ public class InformacoesMusicaController implements Initializable {
         });
 
         btJogar.setOnMouseClicked((MouseEvent e) -> {
-            //Main.trocaTela("jogo", null);
+            Main.trocaTela("jogo", usuario.getId(), musica.getId());
         });
 
         btVoltarLista.setOnMouseClicked((MouseEvent e) -> {
