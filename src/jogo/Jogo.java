@@ -236,7 +236,7 @@ public class Jogo{
     }
 
     public void salvaDadosnoBanco(){
-        System.out.println("Salvo!!!");
+        usuarioDAO.salvarJogada(usuario.getId(), pontos, musica.getId());
     }
 
     public void iniciarJogo(){

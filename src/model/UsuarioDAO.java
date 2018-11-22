@@ -205,4 +205,27 @@ public class UsuarioDAO {
 
         return listaUsuarios;
     }
+
+    public void salvarJogada(int usuarioId, int usuarioPontos, int musicaId){
+        Connection con = FabricaConexao.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement("call salva_dados_jogada(?, ? , ?);");
+
+
+            stmt.setInt(1, usuarioId);
+            stmt.setInt(2, usuarioPontos);
+            stmt.setInt(3, musicaId);
+
+            stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            FabricaConexao.closeConnection(con, stmt);
+        }
+    }
+
+
 }
