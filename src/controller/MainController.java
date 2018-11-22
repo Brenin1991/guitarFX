@@ -25,7 +25,6 @@ public class MainController implements Initializable {
     @FXML
     private Button btLogin;
 
-    private Usuario usuario;
     private UsuarioDAO usuarioDAO;
 
     @Override
@@ -40,23 +39,23 @@ public class MainController implements Initializable {
     }
 
     public void login(){
-        usuario = new Usuario();
+        int usuarioId = 0;
         usuarioDAO = new UsuarioDAO();
 
-        usuario = usuarioDAO.checkLogin(tfEmail.getText(), pfSenha.getText());
-        if(usuario != null){
-            Main.trocaTela("principal", usuario.getId());
+        usuarioId = usuarioDAO.checkLogin(tfEmail.getText(), pfSenha.getText());
+        if(usuarioId != 0){
+            Main.trocaTela("principal", usuarioId);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Success!");
-            alert.setHeaderText("Login successfully: ");
-            alert.setContentText("Welcome "+usuario.getNome()+". ");
+            alert.setTitle("Successo!");
+            alert.setHeaderText("Login realizado: ");
+            alert.setContentText("Bem-vindo(a)!");
             alert.show();
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error!");
-            alert.setHeaderText("Email and/or password does not match: ");
-            alert.setContentText("Please try again. ");
+            alert.setTitle("Erro!");
+            alert.setHeaderText("Email e/ou senha não existem: ");
+            alert.setContentText("Tente novamente. ");
             alert.show();
         }
     }

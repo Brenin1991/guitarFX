@@ -112,30 +112,22 @@ public class UsuarioDAO {
 
 
 
-    public Usuario checkLogin(String email, String senha){
-        Usuario usuario = null;
+    public int checkLogin(String email, String senha){
+        int idPlayer = 0;
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         boolean check = false;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM usuario WHERE email = ? and senha = ?");
+            stmt = con.prepareStatement("select login(?, ?);");
             stmt.setString(1, email);
             stmt.setString(2, senha);
 
             rs = stmt.executeQuery();
 
             if(rs.next()){
-                usuario = new Usuario();
-
-                usuario.setId(rs.getInt("id"));
-                usuario.setNome(rs.getString("usuario"));
-                usuario.setEmail(rs.getString("email"));
-                usuario.setSenha(rs.getString("senha"));
-                usuario.setTotalPontos(rs.getInt("pontos"));
-                usuario.setNivel(rs.getInt("nivel"));
-                check = true;
+               idPlayer = rs.getInt("login('"+email+"', '"+senha+"')");
             }
 
         } catch (SQLException ex) {
@@ -144,7 +136,7 @@ public class UsuarioDAO {
             FabricaConexao.closeConnection(con, stmt, rs);
         }
 
-        return usuario;
+        return idPlayer;
     }
 
     public boolean existsLogin(String email){
@@ -152,15 +144,22 @@ public class UsuarioDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         boolean check = false;
+        int conf = 0;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM usuario WHERE email = ?");
+            stmt = con.prepareStatement("select verifica_cadastro(?)");
             stmt.setString(1, email);
 
             rs = stmt.executeQuery();
 
             if(rs.next()){
-                check = true;
+                conf = rs.getInt("verifica_cadastro('"+email+"')");
+                if(conf != 0) {
+                    check = true;
+                }
+                else{
+                    check = false;
+                }
             }
 
         } catch (SQLException ex) {
@@ -226,6 +225,5 @@ public class UsuarioDAO {
             FabricaConexao.closeConnection(con, stmt);
         }
     }
-
 
 }
