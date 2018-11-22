@@ -22,13 +22,15 @@ import java.util.ResourceBundle;
 public class Jogo{
 
     public Scene scene;
-    private int pontos = 100;
+    private int pontos = 0;
+    private int barraRock = 100;
     private AnchorPane mainPane = new AnchorPane();
     private Pane braco = new Pane();
     private Pane pontosPane = new Pane();
     private Pane tempoPane = new Pane();
     private Pane infoMusicasPane = new Pane();
     private Label lbPontos = new Label("Pontos: "+pontos);
+    private Label lbBarraRock = new Label("Rock: "+barraRock);
     private Label lbStatus = new Label("PREPARADO!");
     private Label lbNome = new Label("Nome");
     private Label lbArtista = new Label("Artista, ano");
@@ -67,10 +69,14 @@ public class Jogo{
 
         mainPane.setPrefSize(800, 600);
         mainPane.setStyle(" -fx-background-image: url(" + musica.getLinkImagem() + "); -fx-background-repeat: no-repeat;   -fx-background-size: 100% 100%;");
-        pontosPane.setPrefSize(250, 50);
+        pontosPane.setPrefSize(250, 100);
         pontosPane.setLayoutX(0);
-        pontosPane.setLayoutY(500);
+        pontosPane.setLayoutY(450);
         pontosPane.getStyleClass().add("background-amplificador");
+        pontosPane.getChildren().add(lbBarraRock);
+        lbBarraRock.getStyleClass().add("label-header");
+        lbBarraRock.setLayoutX(20);
+        lbBarraRock.setLayoutY(55);
         pontosPane.getChildren().add(lbPontos);
         lbPontos.getStyleClass().add("label-header");
         lbPontos.setLayoutX(20);
@@ -139,26 +145,9 @@ public class Jogo{
             if(logicaJogo()){
                 stage.close();
             }
-            //notas
-            if(e.getCode() == KeyCode.DIGIT1){
-                nota1.setVerificaMovimento(true);
-                nota1.mover();
-            }
-            else if(e.getCode() == KeyCode.DIGIT2){
-                nota2.setVerificaMovimento(true);
-                nota2.mover();
-            }
-            else if(e.getCode() == KeyCode.DIGIT3){
-                nota3.setVerificaMovimento(true);
-                nota3.mover();
-            }
-            else if(e.getCode() == KeyCode.DIGIT4){
-                nota4.setVerificaMovimento(true);
-                nota4.mover();
-            }
-            else if(e.getCode() == KeyCode.DIGIT5){
-                nota5.setVerificaMovimento(true);
-                nota5.mover();
+
+            if(e.getCode() == KeyCode.SPACE){
+                iniciarJogo();
             }
             //palhetas
             if(e.getCode() == KeyCode.A){
@@ -186,7 +175,6 @@ public class Jogo{
                 palheta5.animacao();
                 examineColisao(nota5.getCirculo(), palheta5.getCirculo());
             }
-
         });
     }
 
@@ -200,13 +188,16 @@ public class Jogo{
             }
         if(colisao) {
            pontos += 10;
+           barraRock +=10;
+
+           lbBarraRock.setText("Rock: "+barraRock);
            lbPontos.setText("Pontos: "+pontos);
            lbStatus.setText("ACERTOU! +10");
            lbStatus.setTextFill(Color.web("#2EFE2E"));
         }
         if ( !colisao ) {
-            pontos -= 10;
-            lbPontos.setText("Pontos: "+pontos);
+            barraRock -= 30;
+            lbBarraRock.setText("Rock: "+barraRock);
             lbStatus.setText("ERROOU! -10");
             lbStatus.setTextFill(Color.web("#FF0000"));
         }
@@ -226,7 +217,7 @@ public class Jogo{
 
     public Boolean logicaJogo(){
         Boolean conf = false;
-        if(pontos <= 0){
+        if(barraRock <= 0){
             salvaDadosnoBanco();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -237,10 +228,31 @@ public class Jogo{
 
             conf = true;
         }
+        else if(barraRock >= 100){
+            barraRock = 90;
+        }
+
         return conf;
     }
 
     public void salvaDadosnoBanco(){
         System.out.println("Salvo!!!");
+    }
+
+    public void iniciarJogo(){
+        nota1.setVerificaMovimento(true);
+        nota1.mover();
+        nota2.setVerificaMovimento(true);
+        nota2.mover();
+        nota3.setVerificaMovimento(true);
+        nota3.mover();
+        nota4.setVerificaMovimento(true);
+        nota4.mover();
+        nota5.setVerificaMovimento(true);
+        nota5.mover();
+    }
+
+    public void pararJogo(){
+
     }
 }

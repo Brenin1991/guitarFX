@@ -115,7 +115,7 @@ public class Objeto {
         transicao.setNode(circulo);
         transicao.setDuration(Duration.seconds(4));
         transicao.setPath(linhaMovimento);
-        transicao.setCycleCount(PathTransition.INDEFINITE);
+        transicao.setCycleCount(PathTransition.INDEFINITE -1);
         if(getVerificaMovimento() == true) {
             transicao.play();
         }else{
