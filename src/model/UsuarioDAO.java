@@ -11,7 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UsuarioDAO {
-
     public boolean createUsuario(Usuario usuario){
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;

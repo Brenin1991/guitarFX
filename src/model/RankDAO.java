@@ -12,7 +12,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class RankDAO {
-
     public ArrayList<RankMusica> selectRankMusicaLista(int idMusica){
         ArrayList<RankMusica> listaRankMusicas = new ArrayList<>();
         RankMusica rankMusica;

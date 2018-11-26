@@ -1,6 +1,5 @@
-package controller;
+package controller.Usuario;
 
-import classes.Musica;
 import classes.RankMusica;
 import classes.RankUsuario;
 import classes.Usuario;
@@ -14,7 +13,6 @@ import javafx.scene.input.MouseEvent;
 import main.Main;
 import model.RankDAO;
 import model.UsuarioDAO;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;

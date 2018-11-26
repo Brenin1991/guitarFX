@@ -1,36 +1,28 @@
 package main;
 
-import classes.Musica;
-import classes.Usuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import jogo.Jogo;
-
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main extends Application {
-
     private static Stage stage;
-
     private static Scene mainScene;
     private static Scene principalScene;
     private static Scene cadastroScene;
     private static Scene listaMusicasScene;
     private static Scene informacoesMusicaScene;
     private static Scene rankGlobalScene;
-    private static Scene jogoScene;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         stage = primaryStage;
-
-        primaryStage.setTitle("GuitarFX - Login");
+        primaryStage.setTitle("GuitarFX");
         primaryStage.setResizable(false);
 
         Parent mainFXML = FXMLLoader.load(getClass().getResource("../view/MainFXML.fxml"));
@@ -63,10 +55,8 @@ public class Main extends Application {
         informacoesMusicaScene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
         rankGlobalScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
         rankGlobalScene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
-
         primaryStage.setScene(mainScene);
         primaryStage.show();
-
     }
     public static void trocaTela(String scr, int idUsuario, int idMusica){
         switch (scr){

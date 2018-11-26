@@ -1,4 +1,4 @@
-package controller;
+package controller.Usuario;
 
 import classes.InfoMusica;
 import classes.Musica;
@@ -15,13 +15,11 @@ import main.Main;
 import model.MusicaDAO;
 import model.RankDAO;
 import model.UsuarioDAO;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class InformacoesMusicaController implements Initializable {
-
     @FXML
     private Button btJogar = new Button();
     @FXML

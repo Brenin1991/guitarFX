@@ -3,7 +3,6 @@ package jogo;
 import classes.Musica;
 import classes.Objeto;
 import classes.Usuario;
-import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -16,11 +15,8 @@ import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import model.MusicaDAO;
 import model.UsuarioDAO;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class Jogo{
-
     public Scene scene;
     private int pontos = 0;
     private int barraRock = 100;

@@ -3,8 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Usuario.CadastroController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.ManterUsuariosController">
     <top>
         <Pane prefHeight="100.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
             <children>
@@ -79,47 +79,39 @@
     <center>
         <Pane prefHeight="200.0" prefWidth="200.0" styleClass="background-imagem" BorderPane.alignment="CENTER">
             <children>
-                <Pane layoutX="250.0" layoutY="75.0" prefHeight="300.0" prefWidth="300.0" styleClass="background-amplificador">
+                <Pane layoutX="32.0" layoutY="75.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-amplificador">
                     <children>
-                        <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="300.0" prefWidth="300.0" styleClass="background-top">
+                        <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-top">
                             <children>
-                                <Label fx:id="lbRegister" styleClass="label-header" text="REGISTER" textFill="WHITE">
+                                <Label fx:id="lbLogin" styleClass="label-header" text="Usuarios" textAlignment="CENTER" textFill="WHITE">
                                     <font>
                                         <Font name="Arial" size="25.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets left="95.0" top="20.0" />
+                                        <Insets left="270.0" top="20.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField fx:id="tfNickname" maxHeight="30.0" maxWidth="270.0" prefHeight="30.0" prefWidth="270.0" promptText="Nickname">
-                                    <VBox.margin>
-                                        <Insets left="20.0" top="20.0" />
-                                    </VBox.margin>
-                                </TextField>
-                                <TextField fx:id="tfEmail" maxHeight="30.0" maxWidth="270.0" prefHeight="30.0" prefWidth="270.0" promptText="Email">
-                                    <VBox.margin>
-                                        <Insets left="20.0" top="20.0" />
-                                    </VBox.margin>
-                                </TextField>
-                                <PasswordField fx:id="pfPassword" maxWidth="270.0" minWidth="50.0" prefHeight="30.0" prefWidth="270.0" promptText="Password">
-                                    <VBox.margin>
-                                        <Insets left="20.0" top="20.0" />
-                                    </VBox.margin>
-                                </PasswordField>
-                                <HBox prefHeight="77.0" prefWidth="300.0">
-                                    <children>
-                                        <Button fx:id="btBack" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Back">
-                                            <HBox.margin>
-                                                <Insets bottom="20.0" left="20.0" top="20.0" />
-                                            </HBox.margin>
-                                        </Button>
-                                        <Button fx:id="btRegister" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Register">
-                                            <HBox.margin>
-                                                <Insets bottom="20.0" left="30.0" top="20.0" />
-                                            </HBox.margin>
-                                        </Button>
-                                    </children>
-                                </HBox>
+                        <HBox prefHeight="300.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tvUsuarios" maxWidth="600.0" prefHeight="300.0" prefWidth="600.0">
+                                <columns>
+                                  <TableColumn fx:id="tcUsuarioId" prefWidth="50.0" text="id" />
+                                  <TableColumn fx:id="tcUsuarioUsuario" minWidth="0.0" prefWidth="100.0" text="usuario" />
+                                    <TableColumn fx:id="tcUsuarioEmail" prefWidth="100.0" text="email" />
+                                    <TableColumn fx:id="tcUsuarioSenha" prefWidth="100.0" text="senha" />
+                                    <TableColumn fx:id="tcUsuarioPontos" prefWidth="100.0" text="pontos" />
+                                    <TableColumn fx:id="tcUsuarioNivel" prefWidth="100.0" text="nivel" />
+                                </columns>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="75.0" top="10.0" />
+                                 </HBox.margin>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <Button fx:id="btVoltar" mnemonicParsing="false" text="Voltar">
+                           <VBox.margin>
+                              <Insets left="75.0" />
+                           </VBox.margin></Button>
                             </children>
                         </VBox>
                     </children>

@@ -1,9 +1,7 @@
-package controller;
+package controller.Usuario;
 
 import classes.Musica;
 import classes.Usuario;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -13,15 +11,10 @@ import javafx.scene.input.MouseEvent;
 import main.Main;
 import model.MusicaDAO;
 import model.UsuarioDAO;
-
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 public class ListaMusicasController implements Initializable {
-
     @FXML
     private Button btSelecionarMusica = new Button();
     @FXML

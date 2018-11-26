@@ -1,6 +1,5 @@
-package controller;
+package controller.Usuario;
 
-import classes.Musica;
 import classes.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import main.Main;
 import model.UsuarioDAO;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
