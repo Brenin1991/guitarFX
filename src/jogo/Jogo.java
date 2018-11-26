@@ -10,8 +10,11 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import model.MusicaDAO;
 import model.UsuarioDAO;
@@ -32,6 +35,9 @@ public class Jogo{
     private Label lbArtista = new Label("Artista, ano");
     private Label lbTempo = new Label("Tempo: ");
     private String bgIMG = new String();
+    WebView browser = new WebView();
+    WebEngine webEngine = browser.getEngine();
+    VBox vbox = new VBox();
 
     private Objeto nota1 = new Objeto();
     private Objeto nota2 = new Objeto();
@@ -100,6 +106,12 @@ public class Jogo{
         lbArtista.setLayoutX(20);
         lbArtista.setLayoutY(30);
 
+        vbox.setPrefSize(320, 175);
+        vbox.setLayoutX(470);
+        vbox.setLayoutY(0);
+
+        webEngine.loadContent(musica.getLinkYoutube());
+
         braco.setPrefSize(300, 600);
         braco.setLayoutX(250);
         braco.setLayoutY(0);
@@ -107,18 +119,26 @@ public class Jogo{
         braco.getChildren().add(lbStatus);
         lbStatus.getStyleClass().add("label-header");
         lbStatus.setLayoutX(75);
-        lbStatus.setLayoutY(30);
+        lbStatus.setLayoutY(200);
+
+        vbox.getChildren().add(browser);
+
 
         mainPane.getChildren().add(braco);
+        mainPane.getChildren().add(vbox);
         mainPane.getChildren().add(pontosPane);
         mainPane.getChildren().add(infoMusicasPane);
         mainPane.getChildren().add(tempoPane);
+
+
 
         final Group grupo = new Group(mainPane, nota1.getCirculo(), nota2.getCirculo(), nota3.getCirculo(), nota4.getCirculo(), nota5.getCirculo(), palheta1.getCirculo(), palheta2.getCirculo(), palheta3.getCirculo(), palheta4.getCirculo(), palheta5.getCirculo());
         scene = new Scene(grupo, 800, 600);
         scene.getStylesheets().add("style/Style.css");
         scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
         scene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
+
+
     }
 
     public void iniciaPartida (Stage stage, int idUsuario, int idMusica){
@@ -221,6 +241,8 @@ public class Jogo{
             alert.setHeaderText("Você precisa treinar!");
             alert.setContentText("Sua pontuação na partida: "+pontos);
             alert.show();
+
+            browser.getEngine().load(null);
 
             conf = true;
         }
