@@ -110,7 +110,7 @@ public class Jogo{
         vbox.setLayoutX(470);
         vbox.setLayoutY(0);
 
-        webEngine.loadContent(musica.getLinkYoutube());
+        webEngine.loadContent("<iframe width=\"300\" height=\"150\" src=\"https://www.youtube-nocookie.com/embed/"+musica.getLinkYoutube()+"?autoplay=1&controls=0&disablekb=1&start=23&rel=0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
 
         braco.setPrefSize(300, 600);
         braco.setLayoutX(250);
