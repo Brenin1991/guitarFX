@@ -3,7 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -12,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.CadastrarMusicaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../style/Style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Admin.ManterMusicasController">
     <top>
         <Pane prefHeight="100.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
             <children>
@@ -76,43 +79,35 @@
     <center>
         <Pane prefHeight="200.0" prefWidth="200.0" styleClass="background-imagem" BorderPane.alignment="CENTER">
             <children>
-                <Pane layoutX="250.0" layoutY="75.0" prefHeight="300.0" prefWidth="300.0" styleClass="background-amplificador">
+                <Pane layoutX="32.0" layoutY="75.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-amplificador">
                     <children>
-                        <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="300.0" prefWidth="300.0" styleClass="background-top">
+                        <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-top">
                             <children>
-                                <Label fx:id="lbLogin" styleClass="label-header" text="Administrador" textFill="WHITE">
+                                <Label fx:id="lbLogin" styleClass="label-header" text="Generos" textAlignment="CENTER" textFill="WHITE">
                                     <font>
                                         <Font name="Arial" size="25.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets left="65.0" top="20.0" />
+                                        <Insets left="270.0" top="20.0" />
                                     </VBox.margin>
                                 </Label>
-                                <Button fx:id="btManterMusica" minHeight="30.0" mnemonicParsing="false" prefWidth="200.0" text="MANTER MUSICAS">
-                                    <VBox.margin>
-                                        <Insets left="50.0" top="25.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button fx:id="btManterUsuario" minHeight="30.0" mnemonicParsing="false" prefWidth="200.0" text="MANTER USUARIOS">
-                                    <VBox.margin>
-                                        <Insets left="50.0" top="10.0" />
-                                    </VBox.margin>
-                                </Button>
-                                <Button fx:id="btManterGenero" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="200.0" text="MANTER GENEROS">
-                                    <VBox.margin>
-                                        <Insets left="50.0" top="10.0" />
-                                    </VBox.margin>
-                                </Button>
-                        <Button fx:id="btHistoricoJogada" layoutX="60.0" layoutY="175.0" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="200.0" text="HISTORICO D/ JOGOS">
+                        <HBox prefHeight="300.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tvGeneros" maxWidth="600.0" prefHeight="300.0" prefWidth="600.0">
+                                <columns>
+                                  <TableColumn fx:id="tcGeneroId" prefWidth="150.0" text="id" />
+                                  <TableColumn fx:id="tcGeneroGenero" minWidth="0.0" prefWidth="150.0" text="genero" />
+                                </columns>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="75.0" top="10.0" />
+                                 </HBox.margin>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <Button fx:id="btVoltar" mnemonicParsing="false" text="Voltar">
                            <VBox.margin>
-                              <Insets left="50.0" top="10.0" />
-                           </VBox.margin>
-                        </Button>
-                                <Button fx:id="btSair" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="200.0" text="SAIR">
-                                    <VBox.margin>
-                                        <Insets left="50.0" top="10.0" />
-                                    </VBox.margin>
-                                </Button>
+                              <Insets left="75.0" />
+                           </VBox.margin></Button>
                             </children>
                         </VBox>
                     </children>

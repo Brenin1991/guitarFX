@@ -43,6 +43,7 @@ public class Main extends Application {
         Parent rankGlobalFXML = FXMLLoader.load(getClass().getResource("../view/RankGlobalFXML.fxml"));
         rankGlobalScene = new Scene(rankGlobalFXML, 800, 600);
 
+
         mainScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
         mainScene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
         principalScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
