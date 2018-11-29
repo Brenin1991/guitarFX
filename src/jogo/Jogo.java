@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 import model.MusicaDAO;
 import model.UsuarioDAO;
 
+import java.util.Random;
+
 public class Jogo{
     public Scene scene;
     private int pontos = 0;
@@ -30,7 +32,7 @@ public class Jogo{
     private Pane infoMusicasPane = new Pane();
     private Label lbPontos = new Label("Pontos: "+pontos);
     private Label lbBarraRock = new Label("Rock: "+barraRock);
-    private Label lbStatus = new Label("PREPARADO!");
+    private Label lbStatus = new Label("PREPARADO! \n    'ESPAÇO'\nPARA INICIAR");
     private Label lbNome = new Label("Nome");
     private Label lbArtista = new Label("Artista, ano");
     private Label lbTempo = new Label("Tempo: ");
@@ -123,22 +125,17 @@ public class Jogo{
 
         vbox.getChildren().add(browser);
 
-
         mainPane.getChildren().add(braco);
         mainPane.getChildren().add(vbox);
         mainPane.getChildren().add(pontosPane);
         mainPane.getChildren().add(infoMusicasPane);
         mainPane.getChildren().add(tempoPane);
 
-
-
         final Group grupo = new Group(mainPane, nota1.getCirculo(), nota2.getCirculo(), nota3.getCirculo(), nota4.getCirculo(), nota5.getCirculo(), palheta1.getCirculo(), palheta2.getCirculo(), palheta3.getCirculo(), palheta4.getCirculo(), palheta5.getCirculo());
         scene = new Scene(grupo, 800, 600);
         scene.getStylesheets().add("style/Style.css");
         scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
         scene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
-
-
     }
 
     public void iniciaPartida (Stage stage, int idUsuario, int idMusica){
@@ -156,42 +153,54 @@ public class Jogo{
     }
 
     public void gameLoop(Scene scene, Stage stage){
-        scene.setOnKeyPressed(e ->{
-            //virfica jogo
-            if(logicaJogo()){
-                stage.close();
-            }
+            scene.setOnKeyPressed(e -> {
+                Random gerador = new Random();
+                //virfica jogo
+                if (logicaJogo()) {
+                    stage.close();
+                }
 
-            if(e.getCode() == KeyCode.SPACE){
-                iniciarJogo();
-            }
-            //palhetas
-            if(e.getCode() == KeyCode.A){
-                palheta1.setVerificaAnimacao(true);
-                palheta1.animacao();
-                examineColisao(nota1.getCirculo(), palheta1.getCirculo());
-            }
-            else if(e.getCode() == KeyCode.S){
-                palheta2.setVerificaAnimacao(true);
-                palheta2.animacao();
-                examineColisao(nota2.getCirculo(), palheta2.getCirculo());
-            }
-            else if(e.getCode() == KeyCode.J){
-                palheta3.setVerificaAnimacao(true);
-                palheta3.animacao();
-                examineColisao(nota3.getCirculo(), palheta3.getCirculo());
-            }
-            else if(e.getCode() == KeyCode.K){
-                palheta4.setVerificaAnimacao(true);
-                palheta4.animacao();
-                examineColisao(nota4.getCirculo(), palheta4.getCirculo());
-            }
-            else if(e.getCode() == KeyCode.L){
-                palheta5.setVerificaAnimacao(true);
-                palheta5.animacao();
-                examineColisao(nota5.getCirculo(), palheta5.getCirculo());
-            }
-        });
+                if (e.getCode() == KeyCode.SPACE) {
+                    iniciarJogo();
+                }
+                //palhetas
+                if (e.getCode() == KeyCode.A) {
+                    palheta1.setVerificaAnimacao(true);
+                    palheta1.animacao();
+                    examineColisao(nota1.getCirculo(), palheta1.getCirculo());
+                    nota1.setVerificaMovimento(gerador.nextInt(3));
+                    nota1.mover();
+
+                } else if (e.getCode() == KeyCode.S) {
+                    palheta2.setVerificaAnimacao(true);
+                    palheta2.animacao();
+                    examineColisao(nota2.getCirculo(), palheta2.getCirculo());
+                    nota2.setVerificaMovimento(gerador.nextInt(3));
+                    nota2.mover();
+
+                } else if (e.getCode() == KeyCode.J) {
+                    palheta3.setVerificaAnimacao(true);
+                    palheta3.animacao();
+                    examineColisao(nota3.getCirculo(), palheta3.getCirculo());
+                    nota3.setVerificaMovimento(gerador.nextInt(3));
+                    nota3.mover();
+
+                } else if (e.getCode() == KeyCode.K) {
+                    palheta4.setVerificaAnimacao(true);
+                    palheta4.animacao();
+                    examineColisao(nota4.getCirculo(), palheta4.getCirculo());
+                    nota4.setVerificaMovimento(gerador.nextInt(3));
+                    nota4.mover();
+
+                } else if (e.getCode() == KeyCode.L) {
+                    palheta5.setVerificaAnimacao(true);
+                    palheta5.animacao();
+                    examineColisao(nota5.getCirculo(), palheta5.getCirculo());
+                    nota5.setVerificaMovimento(gerador.nextInt(3));
+                    nota5.mover();
+
+                }
+            });
     }
 
     public void examineColisao (Shape nota, Shape palheta) {
@@ -223,8 +232,6 @@ public class Jogo{
         musica = musicaDAO.selectMusica(idMusica);
         lbNome.setText(musica.getMusica());
         lbArtista.setText(""+musica.getAutor()+", "+musica.getAno());
-
-
     }
 
     public void carregarInfoUsuario(int idUsuario){
@@ -258,19 +265,15 @@ public class Jogo{
     }
 
     public void iniciarJogo(){
-        nota1.setVerificaMovimento(true);
-        nota1.mover();
-        nota2.setVerificaMovimento(true);
-        nota2.mover();
-        nota3.setVerificaMovimento(true);
-        nota3.mover();
-        nota4.setVerificaMovimento(true);
-        nota4.mover();
-        nota5.setVerificaMovimento(true);
-        nota5.mover();
-    }
-
-    public void pararJogo(){
-
-    }
+            nota1.setVerificaMovimento(1);
+            nota1.mover();
+            nota2.setVerificaMovimento(1);
+            nota2.mover();
+            nota3.setVerificaMovimento(1);
+            nota3.mover();
+            nota4.setVerificaMovimento(1);
+            nota4.mover();
+            nota5.setVerificaMovimento(1);
+            nota5.mover();
+     }
 }

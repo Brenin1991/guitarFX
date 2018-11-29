@@ -15,8 +15,8 @@ public class Objeto {
     private String corFundo;
     private String corBorda;
     private double velocidade;
-    private Boolean verificaMovimento = false;
-    private Boolean verificaAnimacao = false;
+    private int verificaMovimento = 0;
+    private boolean verificaAnimacao = false;
 
     public double getTamanho() {
         return tamanho;
@@ -74,15 +74,15 @@ public class Objeto {
         this.circulo = circulo;
     }
 
-    public Boolean getVerificaMovimento() {
+    public int getVerificaMovimento() {
         return verificaMovimento;
     }
 
-    public void setVerificaMovimento(Boolean verificaMovimento) {
+    public void setVerificaMovimento(int verificaMovimento) {
         this.verificaMovimento = verificaMovimento;
     }
 
-    public Boolean getVerificaAnimacao() {
+    public boolean getVerificaAnimacao() {
         return verificaAnimacao;
     }
 
@@ -114,8 +114,8 @@ public class Objeto {
         transicao.setNode(circulo);
         transicao.setDuration(Duration.seconds(4));
         transicao.setPath(linhaMovimento);
-        transicao.setCycleCount(PathTransition.INDEFINITE -1);
-        if(getVerificaMovimento() == true) {
+        transicao.setCycleCount(PathTransition.INDEFINITE);
+        if(getVerificaMovimento() == 1) {
             transicao.play();
         }else{
             transicao.stop();
