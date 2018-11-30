@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.util.ArrayList;
 
 public class ADM extends Application {
     private static Stage stage;
@@ -13,9 +12,6 @@ public class ADM extends Application {
     private static Scene manterMusicasScene;
     private static Scene manterUsuariosScene;
     private static Scene manterGenerosScene;
-    private static Scene editarMusicaScene;
-    private static Scene editarUsuarioScene;
-    private static Scene editarGeneroScene;
     private static Scene cadastrarMusicaScene;
     private static Scene cadastrarUsuarioScene;
     private static Scene cadastrarGeneroScene;
@@ -47,15 +43,6 @@ public class ADM extends Application {
         Parent cadastrarUsuario = FXMLLoader.load(getClass().getResource("../view/admin/CadastrarUsuarioFXML.fxml"));
         cadastrarUsuarioScene = new Scene(cadastrarUsuario, 800, 600);
 
-        Parent editarMusica = FXMLLoader.load(getClass().getResource("../view/admin/EditarMusicaFXML.fxml"));
-        editarMusicaScene = new Scene(editarMusica, 800, 600);
-
-        Parent editarGenero = FXMLLoader.load(getClass().getResource("../view/admin/EditarGeneroFXML.fxml"));
-        editarGeneroScene = new Scene(editarGenero, 800, 600);
-
-        Parent editarUsuario = FXMLLoader.load(getClass().getResource("../view/admin/EditarUsuarioFXML.fxml"));
-        editarUsuarioScene = new Scene(editarUsuario, 800, 600);
-
         principalADMScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
         principalADMScene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
 
@@ -75,15 +62,6 @@ public class ADM extends Application {
                 break;
             case "manterUsuarios":
                 stage.setScene(manterUsuariosScene);
-                break;
-            case "editarMusica":
-                stage.setScene(editarMusicaScene);
-                break;
-            case "editarGenero":
-                stage.setScene(editarGeneroScene);
-                break;
-            case "editarUsuario":
-                stage.setScene(editarUsuarioScene);
                 break;
             case "cadastrarMusica":
                 stage.setScene(cadastrarMusicaScene);

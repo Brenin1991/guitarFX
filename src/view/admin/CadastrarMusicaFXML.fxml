@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../style/Style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.CadastrarMusicaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../style/Style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.CadastrarMusicaController">
     <top>
         <Pane prefHeight="100.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
             <children>
@@ -79,31 +80,64 @@
     <center>
         <Pane prefHeight="200.0" prefWidth="200.0" styleClass="background-imagem" BorderPane.alignment="CENTER">
             <children>
-                <Pane prefHeight="450.0" prefWidth="800.0" styleClass="background-amplificador">
-                    <children>
-                        <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="750.0" prefWidth="800.0" styleClass="background-top">
-                            <children>
-                                <Label fx:id="lbLogin" styleClass="label-header" text="Cadastrar musica" textFill="WHITE">
-                                    <font>
-                                        <Font name="Arial" size="25.0" />
-                                    </font>
-                                    <VBox.margin>
-                                        <Insets left="65.0" top="20.0" />
-                                    </VBox.margin>
-                                </Label>
-                        <TextField fx:id="tfAutor" maxWidth="100.0" minWidth="300.0" prefHeight="20.0" prefWidth="100.0" promptText="Autor" />
-                        <TextField fx:id="tfMusica" layoutX="10.0" layoutY="60.0" maxWidth="100.0" minWidth="300.0" prefHeight="20.0" prefWidth="100.0" promptText="Musica" />
-                        <ComboBox fx:id="cbGenero" prefWidth="150.0" promptText="Genero" />
-                        <TextField fx:id="tfAno" layoutX="10.0" layoutY="90.0" maxWidth="100.0" minWidth="300.0" prefHeight="20.0" prefWidth="100.0" promptText="Ano" />
-                        <TextArea fx:id="taDescricao" maxHeight="150.0" maxWidth="300.0" minHeight="150.0" minWidth="200.0" prefHeight="150.0" prefWidth="200.0" />
-                        <TextField fx:id="tfTempo" layoutX="10.0" layoutY="146.0" maxWidth="100.0" minWidth="300.0" prefHeight="20.0" prefWidth="100.0" promptText="Tempo" />
-                        <TextField fx:id="tfLinkImagem" layoutX="10.0" layoutY="376.0" maxWidth="100.0" minWidth="300.0" prefHeight="20.0" prefWidth="100.0" promptText="URL imagem" />
-                        <TextField fx:id="tfLinkYoutube" layoutX="10.0" layoutY="356.0" maxWidth="100.0" minWidth="300.0" prefHeight="20.0" prefWidth="100.0" promptText="URL Youtube" />
-                        <Button fx:id="btCadastrar" mnemonicParsing="false" text="Cadastrar" />
-                            </children>
-                        </VBox>
-                    </children>
-                </Pane>
+                  <VBox layoutX="250.0" layoutY="20.0" prefHeight="730.0" prefWidth="302.0" styleClass="background-top">
+                      <children>
+                  <TextField fx:id="tfAutor" maxWidth="100.0" minWidth="300.0" prefHeight="20.0" prefWidth="100.0" promptText="Autor">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="tfMusica" layoutX="10.0" layoutY="60.0" maxWidth="100.0" minWidth="300.0" prefHeight="20.0" prefWidth="100.0" promptText="Musica">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <ComboBox fx:id="cbGenero" prefWidth="150.0" promptText="Genero">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <TextField fx:id="tfAno" layoutX="10.0" layoutY="90.0" maxWidth="150.0" minWidth="146.0" prefHeight="30.0" prefWidth="150.0" promptText="Ano">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextArea fx:id="taDescricao" maxHeight="150.0" maxWidth="300.0" minHeight="66.0" minWidth="200.0" prefHeight="66.0" prefWidth="300.0" promptText="Descriçao">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextArea>
+                  <TextField fx:id="tfTempo" layoutX="10.0" layoutY="146.0" maxWidth="150.0" minWidth="150.0" prefHeight="30.0" prefWidth="150.0" promptText="Tempo">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="tfLinkImagem" layoutX="10.0" layoutY="376.0" maxWidth="100.0" minWidth="300.0" prefHeight="20.0" prefWidth="100.0" promptText="URL imagem">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="tfLinkYoutube" layoutX="10.0" layoutY="356.0" maxWidth="100.0" minWidth="300.0" prefHeight="20.0" prefWidth="100.0" promptText="URL Youtube">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btCancelar" mnemonicParsing="false" text="Cancelar">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="btCadastrar" mnemonicParsing="false" text="Cadastrar">
+                           <HBox.margin>
+                              <Insets left="80.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                      </children>
+                  </VBox>
             </children>
         </Pane>
     </center>

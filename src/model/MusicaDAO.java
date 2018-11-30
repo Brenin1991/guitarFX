@@ -187,4 +187,30 @@ public class MusicaDAO {
         return musica;
     }
 
+    public boolean removerMusica(int idMusica){
+        Connection con = FabricaConexao.getConnection();
+        PreparedStatement stmt = null;
+        int registros = 0;
+
+        try {
+            stmt = con.prepareStatement("DELETE FROM musica WHERE id = ?");
+
+            stmt.setInt(1, idMusica);
+
+            registros = stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            FabricaConexao.closeConnection(con, stmt);
+        }
+        if(registros == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
 }

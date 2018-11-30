@@ -1,14 +1,13 @@
 package controller.admin;
 
+import classes.Genero;
 import classes.Musica;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import main.ADM;
+import model.GeneroDAO;
 import model.MusicaDAO;
 
 import java.net.URL;
@@ -20,7 +19,7 @@ public class CadastrarMusicaController implements Initializable{
     @FXML
     private TextField tfMusica = new TextField();
     @FXML
-    private ComboBox cbGenero = new ComboBox();
+    private ComboBox<Genero> cbGenero = new ComboBox();
     @FXML
     private TextField tfAno = new TextField();
     @FXML
@@ -33,15 +32,23 @@ public class CadastrarMusicaController implements Initializable{
     private TextField tfLinkYoutube = new TextField();
     @FXML
     private Button btCadastrar = new Button();
+    @FXML
+    private Button btCancelar = new Button();
+
 
     private Musica musica = new Musica();
+    private Genero genero = new Genero();
     private MusicaDAO musicaDAO = new MusicaDAO();
+    private GeneroDAO generoDAO = new GeneroDAO();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        carregarListaGeneros();
         btCadastrar.setOnMouseClicked((MouseEvent e) -> {
             cadastrarMusica();
+        });
+        btCancelar.setOnMouseClicked((MouseEvent e) -> {
+            ADM.trocaTela("manterMusicas");
         });
     }
     public void cadastrarMusica(){
@@ -49,18 +56,35 @@ public class CadastrarMusicaController implements Initializable{
         musica.setAutor(tfAutor.getText());
         musica.setMusica(tfMusica.getText());
         musica.setAno(Integer.parseInt(tfAno.getText()));
-        musica.setGenero(1);
+        genero = cbGenero.getSelectionModel().getSelectedItem();
+        musica.setGenero(genero.getId());
         musica.setDescricao(taDescricao.getText());
         musica.setTempo(Integer.parseInt(tfTempo.getText()));
         musica.setLink_imagem(tfLinkImagem.getText());
         musica.setLink_youtube(tfLinkYoutube.getText());
         conf = musicaDAO.createMusica(musica);
         if(conf == true){
-            System.out.println("Cadastrou! \n"+ musica.getMusica()+"\n"+musica.getAutor()+"\n"+musica.getGenero()+"\n"+musica.getAno()+"\n"+
-                    musica.getDescricao()+"\n"+musica.getTempo()+"\n"+musica.getLink_imagem()+"\n"+musica.getLink_youtube());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Successo!");
+            alert.setHeaderText("Musica cadastrada: ");
+            alert.setContentText("Musica cadastrada com sucesso! ");
+            alert.show();
+
+            ADM.trocaTela("admMain");
         }
         else{
-            System.out.println("Não cadastrou!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Erro!");
+            alert.setHeaderText("Musica não foi cadastrada: ");
+            alert.setContentText("Musica não cadastrada, tente novamente. ");
+            alert.show();
         }
     }
+
+    public void carregarListaGeneros(){
+        for (Genero g : generoDAO.selectGeneroLista()){
+            cbGenero.getItems().add(g);
+        }
+    }
+
 }

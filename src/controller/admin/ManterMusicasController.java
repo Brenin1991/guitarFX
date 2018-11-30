@@ -22,7 +22,9 @@ public class ManterMusicasController implements Initializable {
     @FXML
     private Button btCadastrar = new Button();
     @FXML
-    private Button btEditar = new Button();
+    private Button btRemover = new Button();
+    @FXML
+    private Button btAtualizar = new Button();
     @FXML
     private TableView<Musica> tvMusicas;
     @FXML
@@ -52,13 +54,16 @@ public class ManterMusicasController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         carregaListaMusicas();
         btVoltar.setOnMouseClicked((MouseEvent e) -> {
-
+            voltar();
         });
         btCadastrar.setOnMouseClicked((MouseEvent e) ->{
             ADM.trocaTela("cadastrarMusica");
         });
-        btEditar.setOnMouseClicked((MouseEvent e) ->{
-            System.out.println("Musica: "+tvMusicas.getSelectionModel().getSelectedItem().getMusica());
+        btRemover.setOnMouseClicked((MouseEvent e) ->{
+
+        });
+        btAtualizar.setOnMouseClicked((MouseEvent e) ->{
+            carregaListaMusicas();
         });
     }
 
@@ -78,5 +83,13 @@ public class ManterMusicasController implements Initializable {
 
         tvMusicas.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         tvMusicas.setItems(obsListaMusicas);
+    }
+
+    public void voltar(){
+        ADM.trocaTela("admMain");
+    }
+
+    public void removerMusica(){
+        
     }
 }
