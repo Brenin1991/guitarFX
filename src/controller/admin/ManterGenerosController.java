@@ -1,4 +1,4 @@
-package controller.Admin;
+package controller.admin;
 
 import classes.RankMusica;
 import classes.RankUsuario;
@@ -8,27 +8,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ManterUsuariosController implements Initializable {
+public class ManterGenerosController implements Initializable {
     @FXML
     private Button btVoltar = new Button();
     @FXML
-    private TableView<RankUsuario> tvUsuarios;
+    private TableView<RankUsuario> tvMusicas;
     @FXML
-    private TableColumn<RankUsuario, String> tcUsuarioId;
+    private TableColumn<RankUsuario, String> tcGeneroId;
     @FXML
-    private TableColumn<RankMusica, String> tcUsuarioUsuario;
-    @FXML
-    private TableColumn<RankMusica, String> tcUsuarioEmail;
-    @FXML
-    private TableColumn<RankUsuario, String> tcUsuarioSenha;
-    @FXML
-    private TableColumn<RankUsuario, String> tcUsuarioPontos;
-    @FXML
-    private TableColumn<RankUsuario, String> tcUsuarioNivel;
+    private TableColumn<RankMusica, String> tcGeneroGenero;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

@@ -8,8 +8,8 @@ public class Musica {
     private int ano;
     private String descricao;
     private float tempo;
-    private String linkImagem;
-    private String linkYoutube;
+    private String link_imagem;
+    private String link_youtube;
 
     public int getId() {
         return id;
@@ -67,20 +67,20 @@ public class Musica {
         this.tempo = tempo;
     }
 
-    public String getLinkImagem() {
-        return linkImagem;
+    public String getLink_imagem() {
+        return link_imagem;
     }
 
-    public void setLinkImagem(String linkImagem) {
-        this.linkImagem = linkImagem;
+    public void setLink_imagem(String linkImagem) {
+        this.link_imagem = linkImagem;
     }
 
-    public String getLinkYoutube() {
-        return linkYoutube;
+    public String getLink_youtube() {
+        return link_youtube;
     }
 
-    public void setLinkYoutube(String linkYoutube) {
-        this.linkYoutube = linkYoutube;
+    public void setLink_youtube(String linkYoutube) {
+        this.link_youtube = linkYoutube;
     }
 
     @Override

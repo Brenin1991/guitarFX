@@ -72,7 +72,7 @@ public class Jogo{
         palheta5.criarCirculo(500, 550, 20, 5, "#FF8000", "#000000");
 
         mainPane.setPrefSize(800, 600);
-        mainPane.setStyle(" -fx-background-image: url(" + musica.getLinkImagem() + "); -fx-background-repeat: no-repeat;   -fx-background-size: 100% 100%;");
+        mainPane.setStyle(" -fx-background-image: url(" + musica.getLink_imagem() + "); -fx-background-repeat: no-repeat;   -fx-background-size: 100% 100%;");
         pontosPane.setPrefSize(250, 100);
         pontosPane.setLayoutX(0);
         pontosPane.setLayoutY(450);
@@ -112,7 +112,7 @@ public class Jogo{
         vbox.setLayoutX(470);
         vbox.setLayoutY(0);
 
-        webEngine.loadContent("<iframe width=\"300\" height=\"150\" src=\"https://www.youtube-nocookie.com/embed/"+musica.getLinkYoutube()+"?autoplay=1&controls=0&disablekb=1&start=23&rel=0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+        webEngine.loadContent("<iframe width=\"300\" height=\"150\" src=\"https://www.youtube-nocookie.com/embed/"+musica.getLink_youtube()+"?autoplay=1&controls=0&disablekb=1&start=23&rel=0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
 
         braco.setPrefSize(300, 600);
         braco.setLayoutX(250);

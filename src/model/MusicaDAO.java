@@ -16,6 +16,7 @@ public class MusicaDAO {
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         boolean conf = false;
+        int registros = 0;
 
             try {
                 stmt = con.prepareStatement("INSERT INTO musica (autor, musica, genero,"+
@@ -27,15 +28,22 @@ public class MusicaDAO {
                 stmt.setInt(4, musica.getAno());
                 stmt.setString(5, musica.getDescricao());
                 stmt.setFloat(6, musica.getTempo());
-                stmt.setString(7, musica.getLinkImagem());
-                stmt.setString(8, musica.getLinkYoutube());
+                stmt.setString(7, musica.getLink_imagem());
+                stmt.setString(8, musica.getLink_youtube());
+
+                registros = stmt.executeUpdate();
 
             } catch (SQLException ex) {
                 Logger.getLogger(MusicaDAO.class.getName()).log(Level.SEVERE, null, ex);
             }finally{
                 FabricaConexao.closeConnection(con, stmt);
             }
-        return true;
+        if(registros == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public Musica selectMusica(int id){
@@ -61,8 +69,8 @@ public class MusicaDAO {
                 musica.setAno(rs.getInt("ano"));
                 musica.setDescricao(rs.getString("descricao"));
                 musica.setTempo(rs.getFloat("tempo"));
-                musica.setLinkImagem(rs.getString("link_imagem"));
-                musica.setLinkYoutube(rs.getString("youtube_link"));
+                musica.setLink_imagem(rs.getString("link_imagem"));
+                musica.setLink_youtube(rs.getString("youtube_link"));
                 check = true;
             }
 
@@ -91,8 +99,8 @@ public class MusicaDAO {
             stmt.setInt(4, musica.getAno());
             stmt.setString(5, musica.getDescricao());
             stmt.setFloat(6, musica.getTempo());
-            stmt.setString(7, musica.getLinkImagem());
-            stmt.setString(8, musica.getLinkYoutube());
+            stmt.setString(7, musica.getLink_imagem());
+            stmt.setString(8, musica.getLink_youtube());
 
             registros = stmt.executeUpdate();
 
@@ -133,8 +141,8 @@ public class MusicaDAO {
                 musica.setAno(rs.getInt("ano"));
                 musica.setDescricao(rs.getString("descricao"));
                 musica.setTempo(rs.getFloat("tempo"));
-                musica.setLinkImagem(rs.getString("link_imagem"));
-                musica.setLinkYoutube(rs.getString("youtube_link"));
+                musica.setLink_imagem(rs.getString("link_imagem"));
+                musica.setLink_youtube(rs.getString("youtube_link"));
 
                 listaMusicas.add(musica);
             }
@@ -143,7 +151,6 @@ public class MusicaDAO {
         }finally{
             FabricaConexao.closeConnection(con, stmt, rs);
         }
-
         return listaMusicas;
     }
 

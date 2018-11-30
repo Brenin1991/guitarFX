@@ -25,22 +25,22 @@ public class Main extends Application {
         primaryStage.setTitle("GuitarFX");
         primaryStage.setResizable(false);
 
-        Parent mainFXML = FXMLLoader.load(getClass().getResource("../view/MainFXML.fxml"));
+        Parent mainFXML = FXMLLoader.load(getClass().getResource("../view/usuario/MainFXML.fxml"));
         mainScene = new Scene(mainFXML, 800, 600);
 
-        Parent principalFXML = FXMLLoader.load(getClass().getResource("../view/PrincipalFXML.fxml"));
+        Parent principalFXML = FXMLLoader.load(getClass().getResource("../view/usuario/PrincipalFXML.fxml"));
         principalScene = new Scene(principalFXML, 800, 600);
 
-        Parent cadastroFXML = FXMLLoader.load(getClass().getResource("../view/CadastroFXML.fxml"));
+        Parent cadastroFXML = FXMLLoader.load(getClass().getResource("../view/usuario/CadastroFXML.fxml"));
         cadastroScene = new Scene(cadastroFXML, 800, 600);
 
-        Parent listaMusicasFXML = FXMLLoader.load(getClass().getResource("../view/ListaMusicasFXML.fxml"));
+        Parent listaMusicasFXML = FXMLLoader.load(getClass().getResource("../view/usuario/ListaMusicasFXML.fxml"));
         listaMusicasScene = new Scene(listaMusicasFXML, 800, 600);
 
-        Parent informacoesMusicaFXML = FXMLLoader.load(getClass().getResource("../view/InformacoesMusicaFXML.fxml"));
+        Parent informacoesMusicaFXML = FXMLLoader.load(getClass().getResource("../view/usuario/InformacoesMusicaFXML.fxml"));
         informacoesMusicaScene = new Scene(informacoesMusicaFXML, 800, 600);
 
-        Parent rankGlobalFXML = FXMLLoader.load(getClass().getResource("../view/RankGlobalFXML.fxml"));
+        Parent rankGlobalFXML = FXMLLoader.load(getClass().getResource("../view/usuario/RankGlobalFXML.fxml"));
         rankGlobalScene = new Scene(rankGlobalFXML, 800, 600);
 
 
