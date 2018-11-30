@@ -31,8 +31,8 @@ public class ADM extends Application {
         Parent manterGenerosFXML = FXMLLoader.load(getClass().getResource("../view/admin/ManterGenerosFXML.fxml"));
         manterGenerosScene = new Scene(manterGenerosFXML, 800, 600);
 
-        Parent manterUsuarios = FXMLLoader.load(getClass().getResource("../view/admin/ManterUsuariosFXML.fxml"));
-        manterUsuariosScene = new Scene(manterUsuarios, 800, 600);
+        //Parent manterUsuarios = FXMLLoader.load(getClass().getResource("../view/admin/ManterUsuariosFXML.fxml"));
+        //manterUsuariosScene = new Scene(manterUsuarios, 800, 600);
 
         Parent cadastrarMusica = FXMLLoader.load(getClass().getResource("../view/admin/CadastrarMusicaFXML.fxml"));
         cadastrarMusicaScene = new Scene(cadastrarMusica, 800, 600);
@@ -40,8 +40,8 @@ public class ADM extends Application {
         Parent cadastrarGenero = FXMLLoader.load(getClass().getResource("../view/admin/CadastrarGeneroFXML.fxml"));
         cadastrarGeneroScene = new Scene(cadastrarGenero, 800, 600);
 
-        Parent cadastrarUsuario = FXMLLoader.load(getClass().getResource("../view/admin/CadastrarUsuarioFXML.fxml"));
-        cadastrarUsuarioScene = new Scene(cadastrarUsuario, 800, 600);
+       // Parent cadastrarUsuario = FXMLLoader.load(getClass().getResource("../view/admin/CadastrarUsuarioFXML.fxml"));
+       // cadastrarUsuarioScene = new Scene(cadastrarUsuario, 800, 600);
 
         principalADMScene.getStylesheets().add("https://fonts.googleapis.com/css?family=Russo+One");
         principalADMScene.getStylesheets().add("https://fonts.googleapis.com/css?family=New+Rocker");
@@ -60,18 +60,18 @@ public class ADM extends Application {
             case "manterGeneros":
                 stage.setScene(manterGenerosScene);
                 break;
-            case "manterUsuarios":
-                stage.setScene(manterUsuariosScene);
-                break;
+           // case "manterUsuarios":
+             //   stage.setScene(manterUsuariosScene);
+             //   break;
             case "cadastrarMusica":
                 stage.setScene(cadastrarMusicaScene);
                 break;
             case "cadastrarGenero":
                 stage.setScene(cadastrarGeneroScene);
                 break;
-            case "cadastrarUsuario":
-                stage.setScene(cadastrarUsuarioScene);
-                break;
+            //case "cadastrarUsuario":
+               // stage.setScene(cadastrarUsuarioScene);
+               // break;
         }
     }
 

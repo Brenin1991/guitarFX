@@ -83,7 +83,7 @@
                     <children>
                         <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-top">
                             <children>
-                                <Label fx:id="lbLogin" styleClass="label-header" text="Generos" textAlignment="CENTER" textFill="WHITE">
+                                <Label fx:id="lbLogin" prefWidth="270.0" styleClass="label-header" text="Generos Cadastrados" textAlignment="CENTER" textFill="WHITE">
                                     <font>
                                         <Font name="Arial" size="25.0" />
                                     </font>
@@ -96,7 +96,7 @@
                               <TableView fx:id="tvGeneros" maxWidth="600.0" prefHeight="300.0" prefWidth="600.0">
                                 <columns>
                                   <TableColumn fx:id="tcGeneroId" prefWidth="150.0" text="id" />
-                                  <TableColumn fx:id="tcGeneroGenero" minWidth="0.0" prefWidth="150.0" text="genero" />
+                                  <TableColumn fx:id="tcGenero" minWidth="0.0" prefWidth="150.0" text="genero" />
                                 </columns>
                                  <HBox.margin>
                                     <Insets bottom="10.0" left="75.0" top="10.0" />
@@ -104,10 +104,27 @@
                               </TableView>
                            </children>
                         </HBox>
-                        <Button fx:id="btVoltar" mnemonicParsing="false" text="Voltar">
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btVoltar" mnemonicParsing="false" text="Voltar" />
+                              <Button fx:id="btCadastrar" mnemonicParsing="false" text="Cadastrar">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin></Button>
+                              <Button fx:id="btRemover" mnemonicParsing="false" text="Remover">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin></Button>
+                              <Button fx:id="btAtualizar" layoutX="212.0" layoutY="10.0" mnemonicParsing="false" text="Atualizar">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
                            <VBox.margin>
-                              <Insets left="75.0" />
-                           </VBox.margin></Button>
+                              <Insets left="80.0" />
+                           </VBox.margin>
+                        </HBox>
                             </children>
                         </VBox>
                     </children>

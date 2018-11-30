@@ -13,6 +13,33 @@ import java.util.logging.Logger;
 
 public class GeneroDAO {
 
+    public boolean createGenero(Genero genero){
+        Connection con = FabricaConexao.getConnection();
+        PreparedStatement stmt = null;
+        boolean conf = false;
+        int registros = 0;
+
+        try {
+            stmt = con.prepareStatement("INSERT INTO genero (genero) VALUES (?)");
+
+            stmt.setString(1, genero.getNome());
+
+
+            registros = stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GeneroDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            FabricaConexao.closeConnection(con, stmt);
+        }
+        if(registros == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public ArrayList<Genero> selectGeneroLista(){
         ArrayList<Genero> listaGenero = new ArrayList<>();
         Genero genero;

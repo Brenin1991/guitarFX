@@ -15,7 +15,7 @@ public class PrincipalADMController implements Initializable {
     @FXML
     private Button btManterUsuarios = new Button();
     @FXML
-    private Button btManterGeneros = new Button();
+    private Button btManterGenero = new Button();
     @FXML
     private Button btHistoricoJogadas = new Button();
     @FXML
@@ -29,12 +29,13 @@ public class PrincipalADMController implements Initializable {
         });
 
         btManterUsuarios.setOnMouseClicked((MouseEvent e) -> {
-            ADM.trocaTela("manterUsuarios");
+            //ADM.trocaTela("manterUsuarios");
         });
 
-        btManterGeneros.setOnMouseClicked((MouseEvent e) -> {
+        btManterGenero.setOnMouseClicked((MouseEvent e) -> {
             ADM.trocaTela("manterGeneros");
         });
+
 
         btHistoricoJogadas.setOnMouseClicked((MouseEvent e) -> {
 
