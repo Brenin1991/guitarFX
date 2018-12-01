@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MusicaDAO {
-    public boolean createMusica(Musica musica){
+    public boolean cadastrarMusica(Musica musica){
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         boolean conf = false;
@@ -46,7 +46,7 @@ public class MusicaDAO {
         }
     }
 
-    public Musica selectMusica(int id){
+    public Musica selecionaMusica(int id){
         Musica musica = null;
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
@@ -54,7 +54,7 @@ public class MusicaDAO {
         boolean check = false;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM musica WHERE id = ?");
+            stmt = con.prepareStatement("call seleciona_musica(?)");
             stmt.setInt(1, id);
 
             rs = stmt.executeQuery();
@@ -83,7 +83,7 @@ public class MusicaDAO {
         return musica;
     }
 
-    public boolean editarMusica(Musica musica){
+    public boolean removerMusica(Musica musica){
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         int registros = 0;
@@ -118,7 +118,7 @@ public class MusicaDAO {
 
     }
 
-    public ArrayList<Musica> selectMusicaLista(){
+    public ArrayList<Musica> selecionaMusicaLista(){
         ArrayList<Musica> listaMusicas = new ArrayList<>();
         Musica musica;
         Connection con = null;
@@ -127,7 +127,7 @@ public class MusicaDAO {
 
         try {
             con = FabricaConexao.getConnection();
-            stmt = con.prepareStatement("SELECT * FROM musica");
+            stmt = con.prepareStatement("call lista_musicas()");
 
             rs = stmt.executeQuery();
 
@@ -154,7 +154,7 @@ public class MusicaDAO {
         return listaMusicas;
     }
 
-    public InfoMusica selectInfoMusica(int id){
+    public InfoMusica selecionaInfoMusica(int id){
         InfoMusica musica = null;
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
@@ -185,32 +185,6 @@ public class MusicaDAO {
         }
 
         return musica;
-    }
-
-    public boolean removerMusica(int idMusica){
-        Connection con = FabricaConexao.getConnection();
-        PreparedStatement stmt = null;
-        int registros = 0;
-
-        try {
-            stmt = con.prepareStatement("DELETE FROM musica WHERE id = ?");
-
-            stmt.setInt(1, idMusica);
-
-            registros = stmt.executeUpdate();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            FabricaConexao.closeConnection(con, stmt);
-        }
-        if(registros == 1){
-            return true;
-        }
-        else {
-            return false;
-        }
-
     }
 
 }
