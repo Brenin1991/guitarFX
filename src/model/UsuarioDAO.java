@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UsuarioDAO {
-    public boolean createUsuario(Usuario usuario){
+    public boolean cadastraUsuario(Usuario usuario){
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         int registros = 0;
@@ -45,7 +45,7 @@ public class UsuarioDAO {
         }
     }
 
-    public Usuario selectUsuario(int id){
+    public Usuario selecionaUsuario(int id){
         Usuario usuario = null;
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
@@ -53,7 +53,7 @@ public class UsuarioDAO {
         boolean check = false;
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM usuario WHERE id = ?");
+            stmt = con.prepareStatement("call seleciona_usuario(?)");
             stmt.setInt(1, id);
 
             rs = stmt.executeQuery();
@@ -80,7 +80,7 @@ public class UsuarioDAO {
     }
 
 
-    public boolean editarUsuario(Usuario usuario){
+    public boolean removerUsuario(Usuario usuario){
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         int registros = 0;
@@ -108,8 +108,6 @@ public class UsuarioDAO {
             return false;
         }
     }
-
-
 
     public int checkLogin(String email, String senha){
         int idPlayer = 0;
@@ -170,7 +168,7 @@ public class UsuarioDAO {
         return check;
     }
 
-    public ArrayList<Usuario> selectUsuarioLista(){
+    public ArrayList<Usuario> selecionaUsuarioLista(){
         ArrayList<Usuario> listaUsuarios = new ArrayList<>();
         Usuario usuario;
         Connection con = null;
@@ -179,7 +177,7 @@ public class UsuarioDAO {
 
         try {
             con = FabricaConexao.getConnection();
-            stmt = con.prepareStatement("SELECT * FROM usuario");
+            stmt = con.prepareStatement("call lista_usuarios()");
 
             rs = stmt.executeQuery();
 
