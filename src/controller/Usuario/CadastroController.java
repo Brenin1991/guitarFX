@@ -46,7 +46,7 @@ public class CadastroController  implements Initializable {
         usuario.setEmail(tfEmail.getText());
         usuario.setSenha(pfPassword.getText());
         boolean confirmation = false;
-        confirmation = usuarioDAO.createUsuario(usuario);
+        confirmation = usuarioDAO.cadastraUsuario(usuario);
         if(confirmation == true){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Successo!");
