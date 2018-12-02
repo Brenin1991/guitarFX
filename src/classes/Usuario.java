@@ -40,12 +40,12 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public int getTotalPontos() {
+    public int getPontos() {
         return pontos;
     }
 
-    public void setTotalPontos(int totalPontos) {
-        this.pontos = totalPontos;
+    public void setPontos(int pontos) {
+        this.pontos = pontos;
     }
 
     public int getNivel() {

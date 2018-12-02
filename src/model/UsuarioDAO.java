@@ -63,7 +63,7 @@ public class UsuarioDAO {
                 usuario.setNome(rs.getString("usuario"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
-                usuario.setTotalPontos(rs.getInt("pontos"));
+                usuario.setPontos(rs.getInt("pontos"));
                 usuario.setNivel(rs.getInt("nivel"));
                 check = true;
             }
@@ -183,7 +183,7 @@ public class UsuarioDAO {
                 usuario.setNome(rs.getString("usuario"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
-                usuario.setTotalPontos(rs.getInt("pontos"));
+                usuario.setPontos(rs.getInt("pontos"));
                 usuario.setNivel(rs.getInt("nivel"));
 
                 listaUsuarios.add(usuario);
@@ -224,6 +224,40 @@ public class UsuarioDAO {
         ResultSet rs = stmt
                 .executeQuery("select * from view_usuarios");
         return rs;
+    }
+
+    public boolean cadastraUsuarioBackup(Usuario usuario){
+        Connection con = FabricaConexao.getConnection();
+        PreparedStatement stmt = null;
+        int registros = 0;
+        boolean conf;
+        conf = existsLogin(usuario.getEmail());
+
+        if(conf != true){
+            try {
+                stmt = con.prepareStatement("INSERT INTO usuario (usuario, email, senha,"+
+                        " pontos, nivel) VALUES (?,?,?,?,?)");
+
+                stmt.setString(1, usuario.getNome());
+                stmt.setString(2,usuario.getEmail());
+                stmt.setString(3,usuario.getSenha());
+                stmt.setInt(4, usuario.getPontos());
+                stmt.setInt(5, usuario.getNivel());
+
+                registros = stmt.executeUpdate();
+
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }finally{
+                FabricaConexao.closeConnection(con, stmt);
+            }
+        }
+        if(registros == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }

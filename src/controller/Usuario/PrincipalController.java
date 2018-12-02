@@ -56,6 +56,6 @@ public class PrincipalController implements Initializable {
     public void carregaInfoUsuario(int idUsuario){
         usuario = usuarioDAO.selecionaUsuario(idUsuario);
         lbUserNome.setText("Usuario: "+ usuario.getNome());
-        lbUserPontos.setText("Pontos: "+usuario.getTotalPontos());
+        lbUserPontos.setText("Pontos: "+usuario.getPontos());
     }
 }

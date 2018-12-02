@@ -108,6 +108,16 @@
                               <Insets left="50.0" top="10.0" />
                            </VBox.margin>
                         </Button>
+                                <Button fx:id="btFazerBackup" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="200.0" text="FAZER BACKUP">
+                                    <VBox.margin>
+                                        <Insets left="50.0" top="10.0" />
+                                    </VBox.margin>
+                                </Button>
+                                <Button fx:id="btLerBackup" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="200.0" text="LER BACKUP">
+                                    <VBox.margin>
+                                        <Insets left="50.0" top="10.0" />
+                                    </VBox.margin>
+                                </Button>
                                 <Button fx:id="btSair" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="200.0" text="SAIR">
                                     <VBox.margin>
                                         <Insets left="50.0" top="10.0" />
