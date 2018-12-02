@@ -2,10 +2,8 @@ package model;
 
 import classes.Usuario;
 import fabricaConexao.FabricaConexao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -79,19 +77,15 @@ public class UsuarioDAO {
         return usuario;
     }
 
-
-    public boolean removerUsuario(Usuario usuario){
+    public boolean removerUsuario(int idUsuario){
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         int registros = 0;
 
         try {
-            stmt = con.prepareStatement("UPDATE usuario SET"+
-                    " total_pontos = ? WHERE id = ?");
+            stmt = con.prepareStatement("DELETE FROM usuario where id = ?");
 
-
-            stmt.setInt(1, usuario.getTotalPontos());
-            stmt.setInt(2, usuario.getId());
+            stmt.setInt(1, idUsuario);
 
 
             registros = stmt.executeUpdate();
@@ -107,6 +101,7 @@ public class UsuarioDAO {
         else {
             return false;
         }
+
     }
 
     public int checkLogin(String email, String senha){
@@ -185,10 +180,10 @@ public class UsuarioDAO {
                 usuario = new Usuario();
 
                 usuario.setId(rs.getInt("id"));
-                usuario.setNome(rs.getString("nome"));
+                usuario.setNome(rs.getString("usuario"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
-                usuario.setTotalPontos(rs.getInt("total_pontos"));
+                usuario.setTotalPontos(rs.getInt("pontos"));
                 usuario.setNivel(rs.getInt("nivel"));
 
                 listaUsuarios.add(usuario);
@@ -221,6 +216,14 @@ public class UsuarioDAO {
         }finally{
             FabricaConexao.closeConnection(con, stmt);
         }
+    }
+
+    public ResultSet relatorioUsuarios() throws SQLException{
+        Connection c = FabricaConexao.getConnection();
+        Statement stmt = c.createStatement();
+        ResultSet rs = stmt
+                .executeQuery("select * from view_usuarios");
+        return rs;
     }
 
 }

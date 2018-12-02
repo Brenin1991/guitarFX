@@ -12,6 +12,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import main.ADM;
 import model.MusicaDAO;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.net.URL;
 import java.util.*;
@@ -25,6 +29,8 @@ public class ManterMusicasController implements Initializable {
     private Button btRemover = new Button();
     @FXML
     private Button btAtualizar = new Button();
+    @FXML
+    private Button btRelatorio = new Button();
     @FXML
     private TableView<Musica> tvMusicas;
     @FXML
@@ -60,10 +66,13 @@ public class ManterMusicasController implements Initializable {
             ADM.trocaTela("cadastrarMusica");
         });
         btRemover.setOnMouseClicked((MouseEvent e) ->{
-
+            removerMusica();
         });
         btAtualizar.setOnMouseClicked((MouseEvent e) ->{
             carregaListaMusicas();
+        });
+        btRelatorio.setOnMouseClicked((MouseEvent e) ->{
+            relatorio();
         });
     }
 
@@ -76,9 +85,9 @@ public class ManterMusicasController implements Initializable {
         tcMusicaDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         tcMusicaTempo.setCellValueFactory(new PropertyValueFactory<>("tempo"));
         tcMusicaLink_Imagem.setCellValueFactory(new PropertyValueFactory<>("link_imagem"));
-        tcMusicaLink_Youtube.setCellValueFactory(new PropertyValueFactory<>("youtube_link"));
+        tcMusicaLink_Youtube.setCellValueFactory(new PropertyValueFactory<>("link_youtube"));
 
-        listaMusicas = musicaDAO.selectMusicaLista();
+        listaMusicas = musicaDAO.selecionaMusicaLista();
         obsListaMusicas = FXCollections.observableArrayList(listaMusicas);
 
         tvMusicas.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -90,6 +99,28 @@ public class ManterMusicasController implements Initializable {
     }
 
     public void removerMusica(){
-        
+        if(musicaDAO.removerMusica(tvMusicas.getSelectionModel().getSelectedItem().getId())){
+            carregaListaMusicas();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Erro!");
+            alert.setHeaderText("Musica não foi removida: ");
+            alert.setContentText("Musica não removida, tente novamente. ");
+            alert.show();
+        }
+    }
+
+    @FXML
+    private void relatorio(){
+        try{
+            JRResultSetDataSource relatResul = new JRResultSetDataSource(musicaDAO.relatorioMusicas());
+            JasperPrint jpPrint = JasperFillManager.fillReport("relatorios/MusicasRelatorio.jasper", new HashMap(),relatResul);
+            JasperViewer jv = new JasperViewer(jpPrint,false);
+            jv.setVisible(true);
+            jv.toFront();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

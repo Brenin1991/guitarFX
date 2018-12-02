@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../style/Style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.ManterUsuariosController">
+    <top>
+        <Pane prefHeight="100.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="100.0" prefWidth="800.0" styleClass="background-amplificador">
+                    <children>
+                        <Label fx:id="lbLogo" layoutX="250.0" layoutY="25.0" prefHeight="48.0" prefWidth="300.0" style="-fx-alignment: center;" styleClass="label-logo" text="GuitarFX" textFill="WHITE">
+                            <font>
+                                <Font name="Arial" size="25.0" />
+                            </font>
+                        </Label>
+                        <Circle centerX="50.0" centerY="50.0" radius="15.0" stroke="#726f6f" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle centerX="130.0" centerY="50.0" fill="#9a9a9a" radius="20.0" stroke="#494949" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle centerX="193.0" centerY="50.0" fill="#9a9a9a" radius="20.0" stroke="#494949" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle centerX="600.0" centerY="50.0" fill="#9a9a9a" radius="20.0" stroke="#494949" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle centerX="650.0" centerY="50.0" fill="#9a9a9a" radius="20.0" stroke="#494949" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle centerX="750.0" centerY="50.0" radius="10.0" stroke="#252525" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Text fill="WHITE" layoutX="24.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="INPUT" />
+                        <Text fill="WHITE" layoutX="93.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="VOLUME GAIN" />
+                        <Text fill="WHITE" layoutX="560.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text=" TREBLE BASS" />
+                        <Text fill="WHITE" layoutX="731.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="AUX" />
+                        <Circle centerX="750.0" centerY="80.0" radius="10.0" strokeType="INSIDE" strokeWidth="3.0" styleClass="label-login">
+                            <stroke>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop color="RED" />
+                                        <Stop color="WHITE" offset="1.0" />
+                                    </stops>
+                                </LinearGradient>
+                            </stroke>
+                            <fill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop color="RED" />
+                                        <Stop color="RED" offset="1.0" />
+                                    </stops>
+                                </LinearGradient>
+                            </fill>
+                        </Circle>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+    </top>
+
+    <bottom>
+        <Pane prefHeight="50.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="50.0" prefWidth="800.0" styleClass="background-amplificador">
+                    <children>
+                        <Label fx:id="lbCreditos" layoutX="150.0" prefHeight="50.0" prefWidth="200.0" style="-fx-alignment: center;" styleClass="label-elementos" text="2018 Hard Rock Studio" textFill="WHITE">
+                            <font>
+                                <Font name="Arial" size="25.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+    </bottom>
+
+    <center>
+        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="background-imagem" BorderPane.alignment="CENTER">
+            <children>
+                <Pane layoutX="32.0" layoutY="75.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-amplificador">
+                    <children>
+                        <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-top">
+                            <children>
+                                <Label fx:id="lbLogin" prefWidth="270.0" styleClass="label-header" text="Generos Cadastrados" textAlignment="CENTER" textFill="WHITE">
+                                    <font>
+                                        <Font name="Arial" size="25.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets left="270.0" top="20.0" />
+                                    </VBox.margin>
+                                </Label>
+                        <HBox prefHeight="300.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tvUsuarios" maxWidth="600.0" prefHeight="300.0" prefWidth="600.0">
+                                <columns>
+                                  <TableColumn fx:id="tcId" prefWidth="150.0" text="id" />
+                                  <TableColumn fx:id="tcUsuario" minWidth="0.0" prefWidth="150.0" text="nome" />
+                                    <TableColumn fx:id="tcEmail" minWidth="0.0" prefWidth="150.0" text="email" />
+                                    <TableColumn fx:id="tcSenha" minWidth="0.0" prefWidth="150.0" text="senha" />
+                                    <TableColumn fx:id="tcPontos" minWidth="0.0" prefWidth="150.0" text="pontos" />
+                                    <TableColumn fx:id="tcNivel" minWidth="0.0" prefWidth="150.0" text="nivel" />
+                                </columns>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="75.0" top="10.0" />
+                                 </HBox.margin>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="btVoltar" mnemonicParsing="false" text="Voltar" />
+                              <Button fx:id="btRemover" mnemonicParsing="false" text="Remover">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin></Button>
+                              <Button fx:id="btAtualizar" layoutX="212.0" layoutY="10.0" mnemonicParsing="false" text="Atualizar">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                               <Button fx:id="btRelatorio" layoutX="351.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="128.0" text="Relatorio">
+                                   <BorderPane.margin>
+                                       <Insets left="10.0" />
+                                   </BorderPane.margin>
+                                   <HBox.margin>
+                                       <Insets left="10.0" />
+                                   </HBox.margin>
+                               </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="80.0" />
+                           </VBox.margin>
+                        </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>

@@ -61,7 +61,7 @@ public class RankGlobalController implements Initializable {
     }
 
     public void carregaInfoUsuario(int idUsuario){
-        usuario = usuarioDAO.selectUsuario(idUsuario);
+        usuario = usuarioDAO.selecionaUsuario(idUsuario);
         lbUserNome.setText("Usuario: "+ usuario.getNome());
         lbUserPontos.setText("Pontos: "+usuario.getTotalPontos());
     }
@@ -71,7 +71,7 @@ public class RankGlobalController implements Initializable {
         tcNivel.setCellValueFactory(new PropertyValueFactory<>("Nivel"));
         tcPontos.setCellValueFactory(new PropertyValueFactory<>("Pontos"));
 
-        listaRankGlobal = rankDAO.selectRankGlobalLista();
+        listaRankGlobal = rankDAO.selecionaRankGlobalLista();
         obsListaRankGlobal = FXCollections.observableArrayList(listaRankGlobal);
 
         tvRankGlobal.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);

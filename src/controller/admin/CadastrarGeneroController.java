@@ -38,7 +38,7 @@ public class CadastrarGeneroController implements Initializable{
     public void cadastrarGenero(){
         boolean conf = true;
         genero.setNome(tfGenero.getText());
-        conf = generoDAO.createGenero(genero);
+        conf = generoDAO.cadastrarGenero(genero);
         if(conf == true){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Successo!");

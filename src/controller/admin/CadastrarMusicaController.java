@@ -62,7 +62,7 @@ public class CadastrarMusicaController implements Initializable{
         musica.setTempo(Integer.parseInt(tfTempo.getText()));
         musica.setLink_imagem(tfLinkImagem.getText());
         musica.setLink_youtube(tfLinkYoutube.getText());
-        conf = musicaDAO.createMusica(musica);
+        conf = musicaDAO.cadastrarMusica(musica);
         if(conf == true){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Successo!");
@@ -82,7 +82,7 @@ public class CadastrarMusicaController implements Initializable{
     }
 
     public void carregarListaGeneros(){
-        for (Genero g : generoDAO.selectGeneroLista()){
+        for (Genero g : generoDAO.selecionaGeneroLista()){
             cbGenero.getItems().add(g);
         }
     }

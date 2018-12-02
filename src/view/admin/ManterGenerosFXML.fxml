@@ -96,7 +96,7 @@
                               <TableView fx:id="tvGeneros" maxWidth="600.0" prefHeight="300.0" prefWidth="600.0">
                                 <columns>
                                   <TableColumn fx:id="tcGeneroId" prefWidth="150.0" text="id" />
-                                  <TableColumn fx:id="tcGenero" minWidth="0.0" prefWidth="150.0" text="genero" />
+                                  <TableColumn fx:id="tcGenero" minWidth="0.0" prefWidth="150.0" text="nome" />
                                 </columns>
                                  <HBox.margin>
                                     <Insets bottom="10.0" left="75.0" top="10.0" />
@@ -120,6 +120,7 @@
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </Button>
+
                            </children>
                            <VBox.margin>
                               <Insets left="80.0" />

@@ -112,7 +112,7 @@ public class Jogo{
         vbox.setLayoutX(470);
         vbox.setLayoutY(0);
 
-        webEngine.loadContent("<iframe width=\"300\" height=\"150\" src=\"https://www.youtube-nocookie.com/embed/"+musica.getLink_youtube()+"?autoplay=1&controls=0&disablekb=1&start=23&rel=0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+        webEngine.loadContent("<iframe width=\"300\" height=\"150\" src=\"https://www.youtube-nocookie.com/embed/"+musica.getLink_youtube()+"?autoplay=1&controls=0&disablekb=1&start=5&rel=0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
 
         braco.setPrefSize(300, 600);
         braco.setLayoutX(250);
@@ -229,13 +229,13 @@ public class Jogo{
     }
 
     public void carregarInfoMusica(int idMusica){
-        musica = musicaDAO.selectMusica(idMusica);
+        musica = musicaDAO.selecionaMusica(idMusica);
         lbNome.setText(musica.getMusica());
         lbArtista.setText(""+musica.getAutor()+", "+musica.getAno());
     }
 
     public void carregarInfoUsuario(int idUsuario){
-        usuario = usuarioDAO.selectUsuario(idUsuario);
+        usuario = usuarioDAO.selecionaUsuario(idUsuario);
     }
 
     public Boolean logicaJogo(){

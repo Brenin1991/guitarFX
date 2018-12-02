@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 public class GeneroDAO {
 
-    public boolean createGenero(Genero genero){
+    public boolean cadastrarGenero(Genero genero){
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         boolean conf = false;
@@ -40,7 +40,7 @@ public class GeneroDAO {
         }
     }
 
-    public ArrayList<Genero> selectGeneroLista(){
+    public ArrayList<Genero> selecionaGeneroLista(){
         ArrayList<Genero> listaGenero = new ArrayList<>();
         Genero genero;
         Connection con = null;
@@ -49,7 +49,7 @@ public class GeneroDAO {
 
         try {
             con = FabricaConexao.getConnection();
-            stmt = con.prepareStatement("SELECT * FROM genero");
+            stmt = con.prepareStatement("call lista_generos()");
 
             rs = stmt.executeQuery();
 
@@ -69,4 +69,33 @@ public class GeneroDAO {
         }
         return listaGenero;
     }
+
+    public boolean removerGenero(int idGenero){
+        Connection con = FabricaConexao.getConnection();
+        PreparedStatement stmt = null;
+        int registros = 0;
+
+        try {
+            stmt = con.prepareStatement("DELETE FROM genero where id = ?");
+
+            stmt.setInt(1, idGenero);
+
+
+            registros = stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GeneroDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            FabricaConexao.closeConnection(con, stmt);
+        }
+        if(registros == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
 }
+
+

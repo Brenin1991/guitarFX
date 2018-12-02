@@ -3,10 +3,8 @@ package model;
 import classes.InfoMusica;
 import classes.Musica;
 import fabricaConexao.FabricaConexao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -71,6 +69,7 @@ public class MusicaDAO {
                 musica.setTempo(rs.getFloat("tempo"));
                 musica.setLink_imagem(rs.getString("link_imagem"));
                 musica.setLink_youtube(rs.getString("youtube_link"));
+
                 check = true;
             }
 
@@ -83,24 +82,16 @@ public class MusicaDAO {
         return musica;
     }
 
-    public boolean removerMusica(Musica musica){
+    public boolean removerMusica(int idMusica){
         Connection con = FabricaConexao.getConnection();
         PreparedStatement stmt = null;
         int registros = 0;
 
         try {
-            stmt = con.prepareStatement("UPDATE musica SET"+
-                    "autor = ?, musica = ?, genero = ?,\"+\n" +
-                    "                        \" ano = ?, descricao = ?, tempo = ?, link_imagem = ?, youtube_link = ? WHERE id = ?");
+            stmt = con.prepareStatement("DELETE FROM musica where id = ?");
 
-            stmt.setString(1, musica.getAutor());
-            stmt.setString(2,musica.getMusica());
-            stmt.setInt(3, musica.getGenero());
-            stmt.setInt(4, musica.getAno());
-            stmt.setString(5, musica.getDescricao());
-            stmt.setFloat(6, musica.getTempo());
-            stmt.setString(7, musica.getLink_imagem());
-            stmt.setString(8, musica.getLink_youtube());
+            stmt.setInt(1, idMusica);
+
 
             registros = stmt.executeUpdate();
 
@@ -186,5 +177,14 @@ public class MusicaDAO {
 
         return musica;
     }
+
+    public ResultSet relatorioMusicas() throws SQLException{
+        Connection c = FabricaConexao.getConnection();
+        Statement stmt = c.createStatement();
+        ResultSet rs = stmt
+                .executeQuery("select * from view_musicas");
+        return rs;
+    }
+
 
 }

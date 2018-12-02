@@ -5,7 +5,7 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private int totalPontos;
+    private int pontos;
     private int nivel;
 
     public int getId() {
@@ -41,11 +41,11 @@ public class Usuario {
     }
 
     public int getTotalPontos() {
-        return totalPontos;
+        return pontos;
     }
 
     public void setTotalPontos(int totalPontos) {
-        this.totalPontos = totalPontos;
+        this.pontos = totalPontos;
     }
 
     public int getNivel() {

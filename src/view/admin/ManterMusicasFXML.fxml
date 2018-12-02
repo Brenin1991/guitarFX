@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../style/Style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.ManterMusicasController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../style/Style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.ManterMusicasController">
     <top>
         <Pane prefHeight="100.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
             <children>
@@ -61,7 +61,7 @@
     </top>
 
     <bottom>
-        <Pane prefHeight="50.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
+        <Pane fx:id="btRelatorios" prefHeight="50.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
             <children>
                 <Pane prefHeight="50.0" prefWidth="800.0" styleClass="background-amplificador">
                     <children>
@@ -123,6 +123,14 @@
                                     <Insets left="10.0" />
                                  </HBox.margin></Button>
                               <Button fx:id="btAtualizar" layoutX="212.0" layoutY="10.0" mnemonicParsing="false" text="Atualizar">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btRelatorio" layoutX="351.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="128.0" text="Relatorio">
+                                 <BorderPane.margin>
+                                    <Insets left="10.0" />
+                                 </BorderPane.margin>
                                  <HBox.margin>
                                     <Insets left="10.0" />
                                  </HBox.margin>

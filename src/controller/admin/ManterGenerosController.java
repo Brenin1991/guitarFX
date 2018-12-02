@@ -8,10 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import main.ADM;
@@ -53,7 +50,7 @@ public class ManterGenerosController implements Initializable {
             ADM.trocaTela("cadastrarGenero");
         });
         btRemover.setOnMouseClicked((MouseEvent e) ->{
-
+            removerGenero();
         });
         btAtualizar.setOnMouseClicked((MouseEvent e) ->{
             carregaListaGeneros();
@@ -62,10 +59,10 @@ public class ManterGenerosController implements Initializable {
 
     public void carregaListaGeneros(){
         tcGeneroId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tcGenero.setCellValueFactory(new PropertyValueFactory<>("genero"));
+        tcGenero.setCellValueFactory(new PropertyValueFactory<>("nome"));
 
 
-        listaGeneros = generoDAO.selectGeneroLista();
+        listaGeneros = generoDAO.selecionaGeneroLista();
         obsListaGeneros = FXCollections.observableArrayList(listaGeneros);
 
         tvGeneros.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -76,7 +73,16 @@ public class ManterGenerosController implements Initializable {
         ADM.trocaTela("admMain");
     }
 
-    public void removerMusica(){
-        
+    public void removerGenero(){
+        if(generoDAO.removerGenero(tvGeneros.getSelectionModel().getSelectedItem().getId())){
+            carregaListaGeneros();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Erro!");
+            alert.setHeaderText("Genero não foi removido: ");
+            alert.setContentText("Genero não removido, tente novamente. ");
+            alert.show();
+        }
     }
 }

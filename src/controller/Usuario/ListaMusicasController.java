@@ -55,7 +55,7 @@ public class ListaMusicasController implements Initializable {
     }
 
     public void carregarListaMusicas(){
-        for (Musica m : musicaDAO.selectMusicaLista())
+        for (Musica m : musicaDAO.selecionaMusicaLista())
             cbListaMusicas.getItems().add(m);
     }
 
@@ -65,7 +65,7 @@ public class ListaMusicasController implements Initializable {
     }
 
     public void carregaInfoUsuario(int idUsuario){
-        usuario = usuarioDAO.selectUsuario(idUsuario);
+        usuario = usuarioDAO.selecionaUsuario(idUsuario);
         lbUserNome.setText("Usuario: "+ usuario.getNome());
         lbUserPontos.setText("Pontos: "+ usuario.getTotalPontos());
     }
