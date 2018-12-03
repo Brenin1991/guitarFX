@@ -83,15 +83,15 @@
                     <children>
                         <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="300.0" prefWidth="300.0" styleClass="background-top">
                             <children>
-                                <Label fx:id="lbRegister" styleClass="label-header" text="REGISTER" textFill="WHITE">
+                                <Label fx:id="lbRegister" prefHeight="30.0" prefWidth="151.0" styleClass="label-header" text="REGISTRAR" textFill="WHITE">
                                     <font>
                                         <Font name="Arial" size="25.0" />
                                     </font>
                                     <VBox.margin>
-                                        <Insets left="95.0" top="20.0" />
+                                        <Insets left="85.0" top="20.0" />
                                     </VBox.margin>
                                 </Label>
-                                <TextField fx:id="tfNickname" maxHeight="30.0" maxWidth="270.0" prefHeight="30.0" prefWidth="270.0" promptText="Nickname">
+                                <TextField fx:id="tfNickname" maxHeight="30.0" maxWidth="270.0" prefHeight="30.0" prefWidth="270.0" promptText="Nome">
                                     <VBox.margin>
                                         <Insets left="20.0" top="20.0" />
                                     </VBox.margin>
@@ -101,19 +101,19 @@
                                         <Insets left="20.0" top="20.0" />
                                     </VBox.margin>
                                 </TextField>
-                                <PasswordField fx:id="pfPassword" maxWidth="270.0" minWidth="50.0" prefHeight="30.0" prefWidth="270.0" promptText="Password">
+                                <PasswordField fx:id="pfPassword" maxWidth="270.0" minWidth="50.0" prefHeight="30.0" prefWidth="270.0" promptText="Senha">
                                     <VBox.margin>
                                         <Insets left="20.0" top="20.0" />
                                     </VBox.margin>
                                 </PasswordField>
                                 <HBox prefHeight="77.0" prefWidth="300.0">
                                     <children>
-                                        <Button fx:id="btBack" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Back">
+                                        <Button fx:id="btBack" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Voltar">
                                             <HBox.margin>
                                                 <Insets bottom="20.0" left="20.0" top="20.0" />
                                             </HBox.margin>
                                         </Button>
-                                        <Button fx:id="btRegister" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Register">
+                                        <Button fx:id="btRegister" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Registrar">
                                             <HBox.margin>
                                                 <Insets bottom="20.0" left="30.0" top="20.0" />
                                             </HBox.margin>

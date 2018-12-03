@@ -91,9 +91,9 @@
                                         <Insets left="270.0" top="20.0" />
                                     </VBox.margin>
                                 </Label>
-                        <HBox prefHeight="300.0" prefWidth="200.0">
+                        <HBox prefHeight="260.0" prefWidth="730.0">
                            <children>
-                              <TableView fx:id="tvRankGlobal" maxWidth="600.0" prefHeight="300.0" prefWidth="600.0">
+                              <TableView fx:id="tvRankGlobal" maxWidth="600.0" prefHeight="210.0" prefWidth="600.0">
                                 <columns>
                                   <TableColumn fx:id="tcUsuario" prefWidth="150.0" text="Usuario" />
                                   <TableColumn fx:id="tcNivel" minWidth="0.0" prefWidth="150.0" text="Nivel" />

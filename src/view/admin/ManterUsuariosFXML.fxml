@@ -83,7 +83,7 @@
                     <children>
                         <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-top">
                             <children>
-                                <Label fx:id="lbLogin" prefWidth="270.0" styleClass="label-header" text="Generos Cadastrados" textAlignment="CENTER" textFill="WHITE">
+                                <Label fx:id="lbLogin" prefWidth="270.0" styleClass="label-header" text="Usuarios Cadastrados" textAlignment="CENTER" textFill="WHITE">
                                     <font>
                                         <Font name="Arial" size="25.0" />
                                     </font>

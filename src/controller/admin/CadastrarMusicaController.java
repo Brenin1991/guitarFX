@@ -70,7 +70,7 @@ public class CadastrarMusicaController implements Initializable{
             alert.setContentText("Musica cadastrada com sucesso! ");
             alert.show();
 
-            ADM.trocaTela("admMain");
+            ADM.trocaTela("manterMusicas");
         }
         else{
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

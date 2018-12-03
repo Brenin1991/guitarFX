@@ -1,0 +1,3 @@
+brenin;brenocamposr@gmail.com;1234;1890;1
+teste;teste;1234;1810;1
+usuario;usuario@hotmail.com;1234;680;1

@@ -1,0 +1,7 @@
+Megadeth;Holy Wars...The Punishiment Due;6;1990;From the album Rust In Peace;180.0;http://www.tenhomaisdiscosqueamigos.com/wp-content/uploads/2016/01/megadeth-dystopia.jpg;6rA3swH3Vug
+Metallica;One;6;1988;From the album ...And Justice For All;180.0;https://abrilvejasp.files.wordpress.com/2016/12/metallica1.jpg;CGF78MRNnqg
+Guns N' Roses;It's So Easy;6;1987;From album Appetite For Destruction;180.0;https://www.rollingstone.com/wp-content/uploads/2018/06/rs-102441-006_gnr_canters.jpg;sM65vtKyXNs
+Nirvana;In Bloom;2;1991;From album Nevermind;180.0;https://www.rollingstone.com/wp-content/uploads/2018/06/rs-nirvana-e9e22e4b-f7d9-4fc7-bd94-23c30084ce94.jpg;tHG-A7pv1Dc
+Queen;Radio Ga Ga;6;1984;From album The Works;180.0;http://cdn.itapemafm.clicrbs.com.br/wp-content/uploads/sites/7/2017/08/queen.jpg;YDyw2YrdmuU
+Stone Temple Pilots;Plush;2;1992;From album Core;180.0;http://www.spark-rockmagazine.cz/files/87237496fe407efc4d5279a3c8ff8eeb.jpg;kil38IKt4QI
+Mudhoney;Suck You Dry;2;1992;From album Piece of Cake;180.0;https://images-na.ssl-images-amazon.com/images/I/81ztlT10a5L.jpg;uKneGYttoNg

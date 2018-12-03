@@ -80,7 +80,7 @@
                     <children>
                         <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="300.0" prefWidth="300.0" styleClass="background-top">
                             <children>
-                                <Label fx:id="lbLogin" styleClass="label-header" text="Main Menu" textFill="WHITE">
+                                <Label fx:id="lbLogin" prefHeight="30.0" prefWidth="165.0" styleClass="label-header" text="PRINCIPAL" textAlignment="JUSTIFY" textFill="WHITE">
                                     <font>
                                         <Font name="Arial" size="25.0" />
                                     </font>
@@ -88,27 +88,27 @@
                                         <Insets left="90.0" top="20.0" />
                                     </VBox.margin>
                                 </Label>
-                                <Button fx:id="btPlay" minHeight="30.0" mnemonicParsing="false" prefWidth="150.0" text="PLAY">
+                                <Button fx:id="btPlay" minHeight="30.0" mnemonicParsing="false" prefWidth="150.0" text="JOGAR">
                                     <VBox.margin>
                                         <Insets left="75.0" top="10.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button fx:id="btOptions" minHeight="30.0" mnemonicParsing="false" prefWidth="150.0" text="OPTIONS">
+                                <Button fx:id="btOptions" minHeight="30.0" mnemonicParsing="false" prefWidth="150.0" text="OPÇOES">
                                     <VBox.margin>
                                         <Insets left="75.0" top="10.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button fx:id="btCredits" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="150.0" text="CREDITS">
+                                <Button fx:id="btCredits" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="150.0" text="CREDITOS">
                                     <VBox.margin>
                                         <Insets left="75.0" top="10.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button fx:id="btRank" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="150.0" text="RANK">
+                                <Button fx:id="btRank" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="150.0" text="RANKING">
                                     <VBox.margin>
                                         <Insets left="75.0" top="10.0" />
                                     </VBox.margin>
                                 </Button>
-                                <Button fx:id="btQuit" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="150.0" text="QUIT">
+                                <Button fx:id="btQuit" minHeight="30.0" minWidth="0.0" mnemonicParsing="false" prefWidth="150.0" text="SAIR">
                                     <VBox.margin>
                                         <Insets left="75.0" top="10.0" />
                                     </VBox.margin>
