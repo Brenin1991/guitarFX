@@ -1,5 +1,5 @@
 # GuitarFX 
-__Versão:__ _1.6.2_
+__Versão:__ _1.6.2.2_
 
 ## Sumário
 * Apresentação
@@ -26,7 +26,11 @@ são mantidos pelo administrador.
 #### Desenvolvimento
 * [Java SE Development Kit 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
 * Servidor com banco SQL
-* [Documentação](https://drive.google.com/open?id=1qvVTaav2JIoMOsL_ShBUva4JS3Zbxd2s)
+
+#### Documentação
+* [Visão](https://drive.google.com/open?id=1d7JEpMx4wOuv8DHfB9keb8MvhcNU2gsK)
+* [Especificações dos casos de uso](https://drive.google.com/open?id=1T1tTHufKSZEdDo0lymNy23ff7wDe3lq0)
+* [Diagrama de Classes/ Modelo Relacional](https://drive.google.com/open?id=1fUpjxWhCpWfxdmFsxBwe11GPi5EENOsP)
 
 #### Versão de Uso
 * [Java Runtime Environment](https://www.java.com/pt_BR/download/)
@@ -34,15 +38,13 @@ são mantidos pelo administrador.
 ## Instalação
 ### Desenvolvimento
 #### Configurando o banco
-###### Execute o código SQL de [criação do banco](https://drive.google.com/open?id=1hyXNwxthoiR_kh_grLlt2QsmeuVhROBD) para criar as tabelas necessárias.
-###### Você pode usar o script de [povoamento do banco](https://drive.google.com/open?id=1NcUwG56QIxMTWyCUJfD2SF6i1vjQy0Bt).
-###### Após criar as tabelas, utilize os script funcionais listados abaixo:
-* [Funções](https://drive.google.com/open?id=1Yx7rKpPBskrI1y9pmk53KEkSUe3zqQCW)
-* [Stored Procedures](https://drive.google.com/open?id=1avRbkQMCXpp-aZEtgUA1sCKBD9vda8TK)
-* [Visões](https://drive.google.com/open?id=1YGPYrs4Ajnl5Uk6cmW-TMykRP-nejOPB)
-* [Event]()
+###### Execute o código SQL de [criação do banco](https://drive.google.com/open?id=185J4BwL1YKo0wLKkDT5K2vzl2dNfE8x6) para criar as tabelas necessárias e as funções listadas abaixo:
 
-_Para uma descrição mais detalhada de cada script ou possíveis problemas, veja a [documentação]() do banco._
+* Funções
+* Stored Procedures
+* Visões
+
+_Para uma descrição mais detalhada de cada script ou possíveis problemas, veja a [documentação](https://drive.google.com/open?id=1gRv5hPOEEgyJKNLK7rboNlZqZ8wJSoKB) do banco._
 
 #### Abrindo o projeto
 ###### Abra a sua __IntelliJ IDEA__ (recomendado), clique em __"Check out from Version Control"__.
@@ -70,12 +72,13 @@ public class FabricaConexao {
 
 #### Versão de Uso
 * [JAR - Google Drive](veverv)
-* [JAR - Mega](everv)
 
 ## Licença
-#### [Informar]
+#### [Licença](https://drive.google.com/open?id=11ZTUlB6qpoKk_XgD6_dtKntQOfCsuQj8)
 
 ## Autoria e contribuições
-#### [Informar]
+#### 2018 - HardRock Studio - [Link do peril (GitHub)](https://github.com/GroveBS)
+###### Project by Breno Campos Ribeiro - [Link do peril (GitHub)](https://github.com/orgs/GroveBS/people/GroveBStreet)
+###### Font Roboto by Christian Robertson - [Link do repositório (GitHub)](https://github.com/google/roboto/)
 
 
