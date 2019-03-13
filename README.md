@@ -77,7 +77,7 @@ public class FabricaConexao {
 #### [Licença](https://drive.google.com/open?id=11ZTUlB6qpoKk_XgD6_dtKntQOfCsuQj8)
 
 ## Autoria e contribuições
-#### 2018 - HardRock Studio - [Link do peril (GitHub)](https://github.com/GroveBS)
+#### 2018 - Hard Rock Studio - [Link do peril (GitHub)](https://github.com/GroveBS)
 ###### Project by Breno Campos Ribeiro - [Link do peril (GitHub)](https://github.com/orgs/GroveBS/people/GroveBStreet)
 ###### Font Roboto by Christian Robertson - [Link do repositório (GitHub)](https://github.com/google/roboto/)
 
