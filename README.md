@@ -1,5 +1,5 @@
 # GuitarFX 
-__Versão:__ _1.6.2.2_
+__Versão:__ _1.6.2.2_ PT-BR / _Breno Campos Ribeiro__
 
 ## Sumário
 * Apresentação
@@ -26,6 +26,7 @@ são mantidos pelo administrador.
 #### Desenvolvimento
 * [Java SE Development Kit 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
 * Servidor com banco SQL
+* IntelliJ IDEA (Recomendado)
 
 #### Documentação
 * [Visão](https://drive.google.com/open?id=1d7JEpMx4wOuv8DHfB9keb8MvhcNU2gsK)
@@ -77,8 +78,9 @@ public class FabricaConexao {
 #### [Licença](https://drive.google.com/open?id=11ZTUlB6qpoKk_XgD6_dtKntQOfCsuQj8)
 
 ## Autoria e contribuições
-#### 2018 - Hard Rock Studio - [Link do peril (GitHub)](https://github.com/GroveBS)
-###### Project by Breno Campos Ribeiro - [Link do peril (GitHub)](https://github.com/orgs/GroveBS/people/GroveBStreet)
-###### Font Roboto by Christian Robertson - [Link do repositório (GitHub)](https://github.com/google/roboto/)
+#### 2018 - Hard Rock Studio - [Link do perfil (GitHub)](https://github.com/GroveBS)
+###### Project - Breno Campos Ribeiro - [Link do perfil (GitHub)](https://github.com/orgs/GroveBS/people/GroveBStreet)
+###### Font Roboto - Christian Robertson - [Link do repositório (GitHub)](https://github.com/google/roboto/)
 
+###### Relatórios by Jaspersoft® Studio  - [Site Oficial)](https://community.jaspersoft.com/project/jaspersoft-studio)
 
