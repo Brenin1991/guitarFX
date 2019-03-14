@@ -1,5 +1,5 @@
 # GuitarFX 
-__Versão:__ _1.6.2.2_ PT-BR / _Breno Campos Ribeiro__
+__Versão:__ _1.6.2.2_ / __PT-BR__ / _Breno Campos Ribeiro_
 
 ## Sumário
 * Apresentação
