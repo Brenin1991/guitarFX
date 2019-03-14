@@ -26,7 +26,7 @@ são mantidos pelo administrador.
 #### Desenvolvimento
 * [Java SE Development Kit 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
 * Servidor com banco SQL
-* IntelliJ IDEA (Recomendado)
+* [IntelliJ IDEA (Recomendado)](https://www.jetbrains.com/idea/)
 
 #### Documentação
 * [Visão](https://drive.google.com/open?id=1d7JEpMx4wOuv8DHfB9keb8MvhcNU2gsK)
