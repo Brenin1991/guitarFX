@@ -29,9 +29,7 @@ são mantidos pelo administrador.
 * [IntelliJ IDEA (Recomendado)](https://www.jetbrains.com/idea/)
 
 #### Documentação
-* [Visão](https://drive.google.com/open?id=1d7JEpMx4wOuv8DHfB9keb8MvhcNU2gsK)
-* [Especificações dos casos de uso](https://drive.google.com/open?id=1T1tTHufKSZEdDo0lymNy23ff7wDe3lq0)
-* [Diagrama de Classes/ Modelo Relacional](https://drive.google.com/open?id=1fUpjxWhCpWfxdmFsxBwe11GPi5EENOsP)
+* [UML](https://drive.google.com/open?id=1udk7lsELrjJAxrLwjzex1d5KxdfwJts7)
 
 #### Versão de Uso
 * [Java Runtime Environment](https://www.java.com/pt_BR/download/)
@@ -75,7 +73,7 @@ public class FabricaConexao {
 * [JAR - Google Drive](veverv)
 
 ## Licença
-#### [GPL-2.0](https://drive.google.com/open?id=11ZTUlB6qpoKk_XgD6_dtKntQOfCsuQj8)
+#### GPL-2.0
 
 ## Autoria e contribuições
 #### 2018 - Hard Rock Studio - [Site Oficial](https://hardrockstudio.github.io/HardRockStudio-Website/)
