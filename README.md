@@ -1,5 +1,5 @@
 # GuitarFX 
-__Versão:__ _1.6.2.2_ / __PT-BR__ / _Breno Campos Ribeiro_
+__Versão:__ _1.6.2.2_ / __PT-BR__ / _2018 - Hard Rock Studio_
 
 ## Sumário
 * Apresentação
@@ -75,12 +75,11 @@ public class FabricaConexao {
 * [JAR - Google Drive](veverv)
 
 ## Licença
-#### [Licença](https://drive.google.com/open?id=11ZTUlB6qpoKk_XgD6_dtKntQOfCsuQj8)
+#### [GPL-2.0](https://drive.google.com/open?id=11ZTUlB6qpoKk_XgD6_dtKntQOfCsuQj8)
 
 ## Autoria e contribuições
-#### 2018 - Hard Rock Studio - [Link do perfil (GitHub)](https://github.com/GroveBS)
-###### Project - Breno Campos Ribeiro - [Link do perfil (GitHub)](https://github.com/orgs/GroveBS/people/GroveBStreet)
+#### 2018 - Hard Rock Studio - [Site Oficial](https://hardrockstudio.github.io/HardRockStudio-Website/)
+###### Desenvolvedor - Breno Campos Ribeiro - [Link do perfil (GitHub)](https://github.com/orgs/GroveBS/people/GroveBStreet)
 ###### Font Roboto - Christian Robertson - [Link do repositório (GitHub)](https://github.com/google/roboto/)
-
-###### Relatórios by Jaspersoft® Studio  - [Site Oficial)](https://community.jaspersoft.com/project/jaspersoft-studio)
+###### Relatórios Jaspersoft® Studio  - [Site Oficial)](https://community.jaspersoft.com/project/jaspersoft-studio)
 
