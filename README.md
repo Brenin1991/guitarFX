@@ -79,7 +79,7 @@ public class FabricaConexao {
 
 ## Autoria e contribuições
 #### 2018 - Hard Rock Studio - [Site Oficial](https://hardrockstudio.github.io/HardRockStudio-Website/)
-###### Desenvolvedor - Breno Campos Ribeiro - [Link do perfil (GitHub)](https://github.com/orgs/GroveBS/people/GroveBStreet)
+###### Desenvolvedor - Breno Campos Ribeiro - [Site Oficial](https://hardrockstudio.github.io/HardRockStudio-Website/)
 ###### Font Roboto - Christian Robertson - [Link do repositório (GitHub)](https://github.com/google/roboto/)
-###### Relatórios Jaspersoft® Studio  - [Site Oficial)](https://community.jaspersoft.com/project/jaspersoft-studio)
+###### Relatórios Jaspersoft® Studio  - [Site Oficial](https://community.jaspersoft.com/project/jaspersoft-studio)
 
