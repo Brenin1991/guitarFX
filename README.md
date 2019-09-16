@@ -1,5 +1,5 @@
 # GuitarFX 
-__Versão:__ _1.6.2.2_ / __PT-BR__ / _2018 - Hard Rock Studio_
+__Versão:__ _1.6.3_ / __PT-BR__ / _2018 - Hard Rock Studio_
 
 ## Sumário
 * Apresentação
@@ -19,19 +19,24 @@ partidas gerarão pontos para o usuário,
 que será mostrado no ‘Ranking'.
 As músicas, os gêneros e os usuários
 são mantidos pelo administrador.
+![](https://drive.google.com/uc?id=1pa9t2f3GUD1Et_7CJg1d8uzkhIlQtO_r)
+![](https://drive.google.com/uc?id=1BvESYgAJFWN1_h7NEGDuKyaeU-l_YnPQ)
+![](https://drive.google.com/uc?id=1klR5mvS1-C-O-CBSO6pAj0LsTYVxPCCo)
+![](https://drive.google.com/uc?id=173n-2Lr_5PjeZdOxB8ZyUuEEYvi61aR9)
 
 [Apresentação completa (PDF)](https://drive.google.com/open?id=10zD6LBiUUX7oDZ-isjOPX65HvNdgtuop)
 
 ## Pré-requisitos
 #### Desenvolvimento
 * [Java SE Development Kit 8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html)
-* Servidor com banco SQL
+* Servidor com banco SQL ou SQLite
+* Jasper Report
 * [IntelliJ IDEA (Recomendado)](https://www.jetbrains.com/idea/)
 
 #### Documentação
 * [UML](https://drive.google.com/open?id=1udk7lsELrjJAxrLwjzex1d5KxdfwJts7)
 
-#### Versão de Uso
+#### Java Runtime Environment
 * [Java Runtime Environment](https://www.java.com/pt_BR/download/)
 
 ## Instalação
@@ -69,8 +74,8 @@ public class FabricaConexao {
 ###### No Intellij, abra __"File"__ e __"Project Structure..."__. Na aba __"Modules"__ e __"Dependencies"__. Clique no ícone de __"+"__, __"JARs or Directories..."__. Selecione a pasta __"lib"__ do projeto, clique em __"Apply"__ e __"OK"__.
 ![](https://drive.google.com/uc?id=16rKaSZyjbyb2AHNE9Ujg5r7a-rEbi3_u)
 
-#### Versão de Uso
-* [JAR - Google Drive](veverv)
+#### Binário
+* [Google Drive](veverv)
 
 ## Licença
 #### GPL-2.0
