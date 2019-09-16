@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../style/Style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Usuario.InformacoesMusicaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../style/Style.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Usuario.InformacoesMusicaController">
     <top>
         <Pane prefHeight="100.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
             <children>
@@ -83,12 +83,12 @@
                     <children>
                         <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-top">
                             <children>
-                        <HBox prefHeight="389.0" prefWidth="730.0">
+                        <HBox prefHeight="310.0" prefWidth="730.0">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
                            <children>
-                              <Pane prefHeight="281.0" prefWidth="371.0">
+                              <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
                                  <children>
                                     <Label fx:id="lbLogin1" styleClass="label-header" text="Sobre a Musica" textAlignment="CENTER" textFill="WHITE">
                                        <font>
@@ -140,7 +140,7 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane prefHeight="281.0" prefWidth="358.0">
+                              <Pane prefHeight="268.0" prefWidth="358.0">
                                  <children>
                                     <Label fx:id="lbLogin11" styleClass="label-header" text="Ranking" textAlignment="CENTER" textFill="WHITE">
                                        <font>
@@ -150,7 +150,7 @@
                                           <Insets left="15.0" top="15.0" />
                                        </padding>
                                     </Label>
-                                    <TableView fx:id="tvRankMusica" layoutX="14.0" layoutY="45.0" prefHeight="269.0" prefWidth="330.0">
+                                    <TableView fx:id="tvRankMusica" layoutX="14.0" layoutY="45.0" prefHeight="248.0" prefWidth="310.0">
                                       <columns>
                                         <TableColumn fx:id="tcUsuario" prefWidth="165.0" text="Jogador" />
                                           <TableColumn fx:id="tcPontos" prefWidth="150.0" text="Pontos" />
@@ -160,9 +160,9 @@
                               </Pane>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox prefHeight="46.0" prefWidth="730.0" spacing="10.0">
                            <children>
-                              <Button fx:id="btVoltarLista" mnemonicParsing="false" text="Voltar para Lista">
+                              <Button fx:id="btVoltarLista" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="Voltar para Lista">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
@@ -170,7 +170,7 @@
                               <Button fx:id="btVoltarPrincipal" mnemonicParsing="false" text="Voltar Munu" />
                               <Button fx:id="btJogar" mnemonicParsing="false" text="Jogar">
                                  <HBox.margin>
-                                    <Insets left="320.0" />
+                                    <Insets left="285.0" />
                                  </HBox.margin>
                               </Button>
                            </children>

@@ -40,6 +40,7 @@ public class RankDAO {
             Logger.getLogger(RankDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             FabricaConexao.closeConnection(con, stmt, rs);
+            System.out.println("Close connection");
         }
 
         return listaRankMusicas;

@@ -174,11 +174,6 @@
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
-/*
- * Metro style Push Button
- * Author: Pedro Duque Vieira
- * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
- */
 .button {
     -fx-padding: 5 22 5 22;
     -fx-border-color: #e2e2e2;
@@ -223,81 +218,66 @@
     -fx-background-color: derive(-fx-focus-color,30%);
 }
 
-/*
- * Metro style Push Button
- * Author: Pedro Duque Vieira
- * http://pixelduke.wordpress.com/2012/10/23/jmetro-windows-8-controls-on-java/
- */
-.button-btTip {
-    -fx-padding: 5 22 5 22;
+.combo-box{
+    -fx-background-color: black;
+    fx-padding: 5 22 5 22;
     -fx-border-color: #e2e2e2;
     -fx-border-width: 2;
-    -fx-border-radius: 100;
-    -fx-background-radius: 100;
-    -fx-background-color: blue;
-    -fx-font-family: "Russo One", Helvetica, Arial, sans-serif;
+}
+
+.combo-box .list-cell{
+    -fx-background-radius: 0;
+    -fx-background-color: black;
+    -fx-font-family: "New Rocker", Helvetica, Arial, sans-serif;
     -fx-font-size: 10pt;
     -fx-text-fill: #d8d8d8;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
-.button-btTip:hover {
-    -fx-background-color: lightblue;
+.combo-box-popup .list-view{
+        -fx-border-style: solid, segments(1, 1);
+        -fx-border-radius: 0, 0;
+        -fx-border-insets: 1 1 1 1, 0;
 }
 
-.button-btTip:pressed, .button:default:hover:pressed {
-  -fx-background-color: lightblue;
-  -fx-text-fill: #1d1d1d;
+.combo-box-popup .list-cell:hover{
+    fx-background-color: red;
 }
 
-.button-btTip:focused {
-    -fx-border-color: red, red;
-    -fx-border-width: 2, 2;
-    -fx-border-style: solid, segments(1, 1);
-    -fx-border-radius: 100;
-    -fx-border-insets: 1 1 1 1, 0;
-}
-
-.button-btTip:disabled, .button:default:disabled {
-    -fx-opacity: 0.4;
+.scroll-pane {
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
     -fx-background-color: #1d1d1d;
-    -fx-text-fill: white;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
 }
 
-.button-btTip:default {
-    -fx-background-color: -fx-focus-color;
-    -fx-text-fill: #ffffff;
+.scroll-pane:horizontal, scroll-pane:vertical {
+    -fx-background-color: transparent;
 }
 
-.button-btTip:default:hover {
-    -fx-background-color: derive(-fx-focus-color,30%);
+.increment-button, decrement-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0em;
 }
 
-.progress-bar {
-    -fx-background-color: greenyellow;
-    -fx-border-width: 1;
-    -fx-border-color: #FF0000;
-    -fx-background-insets: 0, 1;
-    -fx-indeterminate-bar-length: 60;
-    -fx-indeterminate-bar-escape: true;
-    -fx-indeterminate-bar-flip: true;
-    -fx-indeterminate-bar-animation-time: 2;
-}
-.progress-bar .bar {
-    -fx-background-color: #FF0000;
-    -fx-background-insets: 0, 1, 2;
-    -fx-padding: 0.416667em; /* 5 */
+.scroll-pane:horizontal .track {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0em;
 }
 
-.progress-bar:indeterminate .bar {
-    -fx-background-color: #FF8C00;
+.scroll-pane:vertical .track {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0em;
 }
 
-.progress-bar .track {
-    -fx-background-color: #FF0000;
-    -fx-background-insets:  0, 1;
+.scroll-pane:horizontal .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
 }
 
-.progress-bar:disabled {
-    -fx-opacity: 0.6;
+.scroll-pane:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
 }

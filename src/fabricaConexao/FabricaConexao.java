@@ -14,9 +14,9 @@ public class FabricaConexao {
 
     //private static Connection con;
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String USER = "USER";
-    private static final String PASSWORD = "PASS";
-    private static final String URL = "URL DATA BASE";
+    private static final String USER = "info17_breno";
+    private static final String PASSWORD = "1234";
+    private static final String URL = "jdbc:mysql://infoprojetos.com.br:3132/info17_breno?useTimezone=true&serverTimezone=UTC";
 
     public static Connection getConnection(){
         try{

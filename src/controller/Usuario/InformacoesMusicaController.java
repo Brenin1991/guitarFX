@@ -85,7 +85,8 @@ public class InformacoesMusicaController implements Initializable {
 
     public void carregaInfoMusica(int idMusica){
         musica = musicaDAO.selecionaMusica(idMusica);
-        infoMusica = musicaDAO.selecionaInfoMusica(musica.getId());
+        infoMusica = musicaDAO.selecionaInfoMusica(idMusica);
+
         lbNomeMusica.setText("Nome: "+infoMusica.getMusica());
         lbNomeArtista.setText("Autor: "+infoMusica.getAutor());
         lbAno.setText("Ano de lançamento: "+infoMusica.getAno());
@@ -104,7 +105,6 @@ public class InformacoesMusicaController implements Initializable {
         tcPontos.setCellValueFactory(new PropertyValueFactory<>("Pontos"));
 
         listaRankMusica = rankDAO.selecionaRankMusicaLista(musica.getId());
-
         obsListaRankMusica = FXCollections.observableArrayList(listaRankMusica);
 
         tvRankMusica.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);

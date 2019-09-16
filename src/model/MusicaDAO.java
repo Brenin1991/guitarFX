@@ -35,6 +35,7 @@ public class MusicaDAO {
                 Logger.getLogger(MusicaDAO.class.getName()).log(Level.SEVERE, null, ex);
             }finally{
                 FabricaConexao.closeConnection(con, stmt);
+                System.out.println("Close connection");
             }
         if(registros == 1){
             return true;
@@ -185,6 +186,4 @@ public class MusicaDAO {
                 .executeQuery("select * from view_musicas");
         return rs;
     }
-
-
 }

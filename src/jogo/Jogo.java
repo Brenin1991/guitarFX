@@ -16,6 +16,7 @@ import javafx.scene.shape.Shape;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.MusicaDAO;
 import model.UsuarioDAO;
 
@@ -139,8 +140,8 @@ public class Jogo{
     }
 
     public void iniciaPartida (Stage stage, int idUsuario, int idMusica){
-        stage.setTitle("GuitarFX - Game");
         stage.setResizable(false);
+        stage.initStyle(StageStyle.UNDECORATED);
 
         carregarInfoMusica(idMusica);
         carregarInfoUsuario(idUsuario);

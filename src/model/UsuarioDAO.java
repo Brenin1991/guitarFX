@@ -33,6 +33,7 @@ public class UsuarioDAO {
                 Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }finally{
                 FabricaConexao.closeConnection(con, stmt);
+                System.out.println("Close connection");
             }
         }
         if(registros == 1){
