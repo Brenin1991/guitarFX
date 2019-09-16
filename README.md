@@ -19,12 +19,13 @@ partidas gerarão pontos para o usuário,
 que será mostrado no ‘Ranking'.
 As músicas, os gêneros e os usuários
 são mantidos pelo administrador.
+
+[Apresentação completa (PDF)](https://drive.google.com/open?id=10zD6LBiUUX7oDZ-isjOPX65HvNdgtuop)
+
 ![](https://drive.google.com/uc?id=1pa9t2f3GUD1Et_7CJg1d8uzkhIlQtO_r)
 ![](https://drive.google.com/uc?id=1BvESYgAJFWN1_h7NEGDuKyaeU-l_YnPQ)
 ![](https://drive.google.com/uc?id=1klR5mvS1-C-O-CBSO6pAj0LsTYVxPCCo)
 ![](https://drive.google.com/uc?id=173n-2Lr_5PjeZdOxB8ZyUuEEYvi61aR9)
-
-[Apresentação completa (PDF)](https://drive.google.com/open?id=10zD6LBiUUX7oDZ-isjOPX65HvNdgtuop)
 
 ## Pré-requisitos
 #### Desenvolvimento
