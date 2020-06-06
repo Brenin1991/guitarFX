@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../../style/Style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Usuario.ScoreController">
+    <top>
+        <Pane prefHeight="100.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="100.0" prefWidth="800.0" styleClass="background-amplificador">
+                    <children>
+                        <Label fx:id="lbLogo" layoutX="250.0" layoutY="25.0" prefHeight="48.0" prefWidth="300.0" style="-fx-alignment: center;" styleClass="label-logo" text="GuitarFX" textFill="WHITE">
+                            <font>
+                                <Font name="Arial" size="25.0" />
+                            </font>
+                        </Label>
+                        <Circle centerX="50.0" centerY="50.0" radius="15.0" stroke="#726f6f" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle centerX="130.0" centerY="50.0" fill="#9a9a9a" radius="20.0" stroke="#494949" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle centerX="193.0" centerY="50.0" fill="#9a9a9a" radius="20.0" stroke="#494949" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle centerX="600.0" centerY="50.0" fill="#9a9a9a" radius="20.0" stroke="#494949" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle centerX="650.0" centerY="50.0" fill="#9a9a9a" radius="20.0" stroke="#494949" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Circle centerX="750.0" centerY="50.0" radius="10.0" stroke="#252525" strokeType="INSIDE" strokeWidth="5.0" />
+                        <Text fill="WHITE" layoutX="24.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="INPUT" />
+                        <Text fill="WHITE" layoutX="93.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="VOLUME GAIN" />
+                        <Text fill="WHITE" layoutX="560.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text=" TREBLE BASS" />
+                        <Text fill="WHITE" layoutX="731.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label" text="AUX" />
+                        <Circle centerX="750.0" centerY="80.0" radius="10.0" strokeType="INSIDE" strokeWidth="3.0" styleClass="label-login">
+                            <stroke>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop color="RED" />
+                                        <Stop color="WHITE" offset="1.0" />
+                                    </stops>
+                                </LinearGradient>
+                            </stroke>
+                            <fill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop color="RED" />
+                                        <Stop color="RED" offset="1.0" />
+                                    </stops>
+                                </LinearGradient>
+                            </fill>
+                        </Circle>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+    </top>
+
+    <bottom>
+        <Pane prefHeight="50.0" prefWidth="800.0" styleClass="background" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="50.0" prefWidth="800.0" styleClass="background-amplificador">
+                    <children>
+                        <Label fx:id="lbCreditos" layoutX="150.0" prefHeight="50.0" prefWidth="200.0" style="-fx-alignment: center;" styleClass="label-elementos" text="2018 Hard Rock Studio" textFill="WHITE">
+                            <font>
+                                <Font name="Arial" size="25.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+    </bottom>
+
+    <center>
+        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="background-imagem" BorderPane.alignment="CENTER">
+            <children>
+                <Pane layoutX="32.0" layoutY="75.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-amplificador">
+                    <children>
+                        <VBox layoutX="-3.0" layoutY="-4.0" prefHeight="350.0" prefWidth="730.0" styleClass="background-top">
+                            <children>
+                                <HBox prefHeight="310.0" prefWidth="730.0">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox prefHeight="46.0" prefWidth="730.0" spacing="10.0">
+                                    <children>
+                                        <Button fx:id="btVoltar" mnemonicParsing="false" prefHeight="30.0" prefWidth="180.0" text="RETURN">
+                                            <HBox.margin>
+                                                <Insets left="280.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </VBox>
+                              <VBox prefHeight="297.0" prefWidth="728.0">
+                                  <children>
+                                      <Label fx:id="lbStatus" styleClass="label-header" text="STATUS" textAlignment="CENTER" textFill="WHITE">
+                                          <font>
+                                              <Font name="Arial" size="25.0" />
+                                          </font>
+                                          <VBox.margin>
+                                              <Insets left="310.0" top="15.0" />
+                                          </VBox.margin>
+                                      </Label>
+                                      <Label fx:id="lbScore" styleClass="label-elementos" text="YOUR SCORE: " textAlignment="CENTER" textFill="WHITE">
+                                          <font>
+                                              <Font name="Arial" size="25.0" />
+                                          </font>
+                                          <VBox.margin>
+                                              <Insets left="275.0" top="15.0" />
+                                          </VBox.margin>
+                                      </Label>
+                                      <Label fx:id="lbBestScore" styleClass="label-elementos" text="BEST SCORE" textAlignment="CENTER" textFill="WHITE">
+                                          <font>
+                                              <Font name="Arial" size="25.0" />
+                                          </font>
+                                          <VBox.margin>
+                                              <Insets left="275.0" top="15.0" />
+                                          </VBox.margin>
+                                      </Label>
+                                  </children>
+                              </VBox>
+                    </children>
+                </Pane>
+                <Label fx:id="lbUserNome" layoutX="50.0" layoutY="35.0" styleClass="label-header" text="Logado: Brenin" />
+                <Label fx:id="lbUserPontos" layoutX="600.0" layoutY="35.0" styleClass="label-header" text="Pontos: 1000" />
+            </children>
+        </Pane>
+    </center>
+</BorderPane>
